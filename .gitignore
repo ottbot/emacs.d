@@ -1,0 +1,15 @@
+*~
+/.cask/
+/.dropbox
+/.org-id-locations
+/.project-roots
+/abbrev_defs
+/ac-comphist.dat
+/backups/
+/url/
+/tramp
+/swank/
+/semanticdb/
+/request/
+/auto-save-list/
+/eshell/
