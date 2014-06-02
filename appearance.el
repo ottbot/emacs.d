@@ -4,7 +4,6 @@
 (load-theme 'noctilux t)
 
 (display-time-mode 1)
-(display-battery-mode)
 (fringe-mode 0)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
