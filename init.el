@@ -32,10 +32,12 @@
 
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
-
 ;; load up others
+(require 'paredit-conf)
 (require 'ac-conf)
 (require 'ido-conf)
+(require 'elisp-conf)
+(require 'clojure-conf)
 (require 'css-conf)
 (require 'org-conf)
 (require 'tramp-conf)
