@@ -43,13 +43,12 @@
 (require 'ruby-conf)
 (require 'c-conf)
 ;;(require 'rsense-conf)
-(require 'mu4e-conf)
 (require 'defuns)
 (require 'sql-conf)
 (require 'ocaml-conf)
 (require 'recentf-conf)
-(require 'swank-conf)
-(require 'multi-term-conf)
+;;(require 'swank-conf)
+;;(require 'multi-term-conf)
 ;; (require 'tex-site)
 ;;(require 'evil-conf)
 (require 'keybindings)
@@ -64,15 +63,15 @@
 ;; (add-hook 'magit-log-edit-mode-hook
 ;;           (lambda () (flyspell-mode 1) ))
 
-(setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "google-chrome")
+;;(setq browse-url-browser-function 'browse-url-generic
+;;          browse-url-generic-program "google-chrome")
 
 
 
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; Use aspell
-(setq-default ispell-program-name "aspell")
+;;(setq-default ispell-program-name "aspell")
 
 ;; Fire up the server
 (require 'server)
