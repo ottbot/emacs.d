@@ -62,18 +62,11 @@
 
 (add-hook 'before-save-hook 'my-delete-trailing-whitespace)
 
-;; (add-hook 'magit-log-edit-mode-hook
-;;           (lambda () (flyspell-mode 1) ))
-
-;;(setq browse-url-browser-function 'browse-url-generic
-;;          browse-url-generic-program "google-chrome")
-
-
-
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; Use aspell
-;;(setq-default ispell-program-name "aspell")
+(setq-default ispell-program-name "/usr/local/bin/aspell")
+(setq-default ispell-list-command "list")
 
 ;; Fire up the server
 (require 'server)
