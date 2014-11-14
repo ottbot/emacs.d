@@ -7,9 +7,9 @@
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
-(setq site-lisp-dir (expand-file-name "site-lisp" dotfiles-dir))
+(setq lisp-dir (expand-file-name "lisp" dotfiles-dir))
 
-(add-to-list 'load-path dotfiles-dir)
+(add-to-list 'load-path lisp-dir)
 
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
