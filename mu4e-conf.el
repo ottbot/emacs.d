@@ -1,6 +1,8 @@
 (require 'mu4e)
 
-(setq mu4e-maildir "~/.mail")
+(setq mu4e-mu-binary "/usr/local/bin/mu")
+
+(setq mu4e-maildir "/Users/rob/.mail")
 
 (require 'sendmail)
 (require 'org-mu4e)
@@ -16,34 +18,38 @@
                                     "rob@fundingcircle.com"))
 
 ;; general settings
-(setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
+(setq mail-user-agent 'mu4e-user-agent                     ; mu4e as default mail agent
       user-full-name "Robert Crim"
-      mu4e-attachment-dir "~/Downloads"                  ; put attachements in download dir
-      mu4e-get-mail-command "mbsync -a"                  ; fetch email with offlineimap
-      mu4e-confirm-quit nil                              ; don't ask me to quit
-      mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail
-      mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format
-      mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
-      mu4e-html2text-command "w3m -dump -T text/html"    ; html to text
-      mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
+      mu4e-attachment-dir "~/Downloads"                    ; put attachements in download dir
+      mu4e-get-mail-command "mbsync -a --pull-new --push"  ; fetch email with mbsync
+      mu4e-confirm-quit nil                                ; don't ask me to quit
+      mu4e-headers-skip-duplicates t                       ; skip duplicate email, great for gmail
+      mu4e-headers-date-format "%d %b, %Y at %H:%M"        ;   date format
+      mu4e-headers-leave-behavior 'apply                   ; apply all marks at quit
+      mu4e-html2text-command "w3m -dump -T text/html"      ; html to text
+      mu4e-compose-dont-reply-to-self t                    ; don't reply to myself
+      mu4e-compose-signature-auto-include nil
+      mu4e-compose-signature ""
       message-signature ""                               ; signature
       message-kill-buffer-on-exit t                      ; don't keep message buffers around
       smtpmail-queue-mail nil                            ; start in non queue mode
       ;;mu4e-update-interval 300
       mu4e-headers-auto-update t
-      mu4e-use-fancy-chars nil
-)
+      mu4e-use-fancy-chars nil)
+
+
 
 
 (setq mu4e-view-show-images t)
+
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
 
-(setq mu4e-view-prefer-html nil)
+(setq mu4e-view-prefer-html t)
 
 
 ;; maildir locations
-(setq mu4e-maildir "/home/rob/.mail"
+(setq mu4e-maildir "~/.mail"
       mu4e-sent-folder "/personal/[Gmail]_Sent Mail"
       mu4e-drafts-folder "/personal/[Gmail]_Drafts"
       mu4e-trash-folder "/personal/[Gmail]_All Mail"
@@ -52,6 +58,8 @@
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      starttls-gnutls-program "/usr/local/bin/gnutls-cli"
       smtpmail-stream-type 'starttls
       smtpmail-smtp-service 587
       smtpmail-debug-info t
@@ -124,11 +132,6 @@
              '("View in browser" . mu4e-msgv-action-view-in-browser) t)
 
 
-
-
-
-
-
 ;; ;; headers in the overview
 ;; (setq mu4e-headers-fields
 ;;   '((:maildir       .  24)
@@ -148,13 +151,7 @@
 ;; shortcuts
 (setq mu4e-maildir-shortcuts
        '(("/personal/inbox"   . ?i)
-         ("/work/inbox"       . ?I)
-         ("/personal/archive" . ?a)
-         ("/work/archive"     . ?A)
-         ("/personal/sent"    . ?s)
-         ("/work/sent"        . ?S)
-         ("/personal/trash"   . ?t)
-         ("/work/trash"       . ?T)))
+         ("/work/inbox"       . ?I)))
 
 (require 'gnus-dired)
 ;; make the `gnus-dired-mail-buffers' function also work on

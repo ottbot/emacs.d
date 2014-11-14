@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/org/notes.org")
- (front-context-string . "** TODO Logstash")
- (rear-context-string . "2013-12-10 Tue]\n")
- (position . 51))
+ (front-context-string . "** TODO Get UK f")
+ (rear-context-string . "r:/work/inbox]]\n")
+ (position . 8294))
 )

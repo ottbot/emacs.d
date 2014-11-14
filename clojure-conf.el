@@ -2,7 +2,7 @@
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+;;(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 (define-clojure-indent
   (defroutes 'defun)
