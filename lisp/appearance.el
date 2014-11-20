@@ -1,5 +1,3 @@
-;;(require 'powerline-my-theme)
-;;(powerline-default-theme)
 
 (load-theme 'brin t)
 (powerline-default-theme)
