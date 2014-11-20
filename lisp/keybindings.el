@@ -3,6 +3,12 @@
 (windmove-default-keybindings)
 (setq framemove-hook-into-windmove t)
 
+(global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "M-p") 'backward-paragraph)
+
+(global-set-key (kbd "M-N") 'forward-page)
+(global-set-key (kbd "M-P") 'backward-page)
+
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
 (global-set-key (kbd "C-c <up>")    'windmove-up)
@@ -18,6 +24,8 @@
 (global-set-key (kbd "<C-prior>") 'multi-term-prev)
 
 
+(global-unset-key (kbd "<C-down>"))
+(global-unset-key (kbd "<C-up>"))
 
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (autoload  'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
