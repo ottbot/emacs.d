@@ -3,7 +3,7 @@
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
-
+(pallet-mode t)
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 
