@@ -57,6 +57,7 @@
 ;;(require 'multi-term-conf)
 ;; (require 'tex-site)
 ;;(require 'evil-conf)
+(require 'paxedit-conf)
 (require 'keybindings)
 
 ;; hooks

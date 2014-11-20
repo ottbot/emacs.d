@@ -1,5 +1,6 @@
 (require 'clojure-mode)
 
+(add-hook 'clojure-mode-hook 'paxedit-mode)
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 ;;(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)

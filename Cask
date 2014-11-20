@@ -67,6 +67,7 @@
 (depends-on "paredit-everywhere")
 (depends-on "paredit-menu")
 (depends-on "pastels-on-dark-theme")
+(depends-on "paxedit")
 (depends-on "php-mode")
 (depends-on "pig-mode")
 (depends-on "pkg-info")
