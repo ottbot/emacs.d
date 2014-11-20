@@ -1,6 +1,4 @@
-
 (load-theme 'brin t)
-(powerline-default-theme)
 
 (display-time-mode 1)
 (fringe-mode 0)
