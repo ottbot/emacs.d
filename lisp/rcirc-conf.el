@@ -24,6 +24,4 @@
 
 (rcirc-track-minor-mode 1)
 
-(setq rcirc-authinfo '(("localhost" bitlbee "rob" "cl0wnsh03s")))
-
 (provide 'rcirc-conf)
