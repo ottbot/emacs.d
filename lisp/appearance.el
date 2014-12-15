@@ -1,4 +1,4 @@
-(load-theme 'brin t)
+(load-theme 'smyx t)
 
 (display-time-mode 1)
 (fringe-mode 0)
@@ -15,7 +15,6 @@
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
 
-
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (tooltip-mode -1)
@@ -23,6 +22,5 @@
   (blink-cursor-mode -1))
 
 (set-default-font "Inconsolata-13")
-;;(set-default-font "-unknown-Dina-normal-normal-normal-*-13-*-*-*-c-*-iso10646-1")
 
 (provide 'appearance)
