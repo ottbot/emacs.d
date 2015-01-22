@@ -17,13 +17,6 @@
 (global-set-key [f7] 'magit-status)
 (global-set-key [f8] 'mu4e)
 
-
-(global-set-key [f5] 'multi-term)
-(global-set-key (kbd "<M-SPC>") 'multi-term-dedicated-toggle)
-(global-set-key (kbd "<C-next>") 'multi-term-next)
-(global-set-key (kbd "<C-prior>") 'multi-term-prev)
-
-
 (global-unset-key (kbd "<C-down>"))
 (global-unset-key (kbd "<C-up>"))
 
