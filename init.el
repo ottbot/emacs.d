@@ -52,6 +52,7 @@
 (require 'ocaml-conf)
 (require 'recentf-conf)
 (require 'paxedit-conf)
+(require 'eshell-conf)
 (require 'keybindings)
 
 ;; hooks
