@@ -5,6 +5,14 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 ;;(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+
+(add-hook 'cider-mode-hook #'eldoc-mode)
+(setq nrepl-log-messages t)
+(setq nrepl-hide-special-buffers t)
+
+
 (define-clojure-indent
   (defroutes 'defun)
   (GET 2)
