@@ -79,6 +79,7 @@
 
 ;; Variables
 (setq compilation-scroll-output t)
+(setq require-final-newline t)
 
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
