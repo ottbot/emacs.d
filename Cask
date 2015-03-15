@@ -6,6 +6,7 @@
 (depends-on "4clojure")
 (depends-on "ace-jump-buffer")
 (depends-on "ace-jump-mode")
+(depends-on "ace-window")
 (depends-on "ack-and-a-half")
 (depends-on "alect-themes")
 (depends-on "ample-theme")

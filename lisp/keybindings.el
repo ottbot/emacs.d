@@ -9,16 +9,15 @@
 (global-set-key (kbd "M-N") 'forward-page)
 (global-set-key (kbd "M-P") 'backward-page)
 
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")  'windmove-down)
-
 (global-set-key [f7] 'magit-status)
 (global-set-key [f8] 'mu4e)
 
 (global-unset-key (kbd "<C-down>"))
 (global-unset-key (kbd "<C-up>"))
+
+
+(global-unset-key (kbd "M-c"))
+(global-set-key (kbd "M-c") 'ace-window)
 
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (autoload  'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
