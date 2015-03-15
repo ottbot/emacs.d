@@ -11,6 +11,8 @@
 
 (global-set-key [f7] 'magit-status)
 (global-set-key [f8] 'mu4e)
+(global-set-key [f9] 'eshell)
+
 
 (global-unset-key (kbd "<C-down>"))
 (global-unset-key (kbd "<C-up>"))
