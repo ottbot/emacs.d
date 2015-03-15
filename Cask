@@ -98,6 +98,7 @@
 (depends-on "sublime-themes")
 (depends-on "surround")
 (depends-on "swank-clojure")
+(depends-on "swiper")
 (depends-on "todotxt")
 (depends-on "tomatinho")
 (depends-on "tuareg")
