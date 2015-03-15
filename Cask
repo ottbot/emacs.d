@@ -99,6 +99,7 @@
 (depends-on "surround")
 (depends-on "swank-clojure")
 (depends-on "swiper")
+(depends-on "terraform-mode")
 (depends-on "todotxt")
 (depends-on "tomatinho")
 (depends-on "tuareg")
