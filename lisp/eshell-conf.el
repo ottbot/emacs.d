@@ -4,6 +4,11 @@
 (setenv "LANG" "en_US.UTF8")
 (setenv "EDITOR" "emacsclient")
 
+(setenv "DOCKER_HOST" "tcp://192.168.59.103:2376")
+(setenv "DOCKER_CERT_PATH" "/Users/rob/.boot2docker/certs/boot2docker-vm")
+(setenv "DOCKER_TLS_VERIFY" "1")
+
+
 (setq eshell-cmpl-cycle-completions nil
       eshell-history-size 20000
       eshell-save-history-on-exit t
