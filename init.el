@@ -20,21 +20,6 @@
 
 
 (require 'pig-mode)
-(require 'magit)
-
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
-
-(defun magit-quit-session ()
-  "Restores the previous window configuration and kills the magit buffer"
-  (interactive)
-  (kill-buffer)
-  (jump-to-register :magit-fullscreen))
-
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-
 ;; load up others
 (require 'company-conf)
 (require 'paredit-conf)
@@ -47,13 +32,14 @@
 (require 'sane-defaults)
 (require 'ruby-conf)
 (require 'c-conf)
-(require 'defuns)
 (require 'multi-term-conf)
 (require 'sql-conf)
 (require 'ocaml-conf)
 (require 'recentf-conf)
 (require 'paxedit-conf)
 (require 'eshell-conf)
+(require 'magit-conf)
+(require 'defuns)
 (require 'keybindings)
 
 ;; hooks
