@@ -104,6 +104,7 @@
 (depends-on "tomatinho")
 (depends-on "tuareg")
 (depends-on "undo-tree")
+(depends-on "unkillable-scratch")
 (depends-on "vagrant")
 (depends-on "xclip")
 (depends-on "yaml-mode")

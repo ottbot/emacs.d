@@ -76,6 +76,8 @@
 
 (require 'appearance)
 
+;; I love *scratch*!!!!
+(unkillable-scratch 1)
 
 ;; Variables
 (setq compilation-scroll-output t)
