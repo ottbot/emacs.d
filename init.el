@@ -48,6 +48,7 @@
 (require 'ruby-conf)
 (require 'c-conf)
 (require 'defuns)
+(require 'multi-term-conf)
 (require 'sql-conf)
 (require 'ocaml-conf)
 (require 'recentf-conf)

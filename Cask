@@ -61,6 +61,7 @@
 (depends-on "moe-theme")
 (depends-on "molokai-theme")
 (depends-on "mu4e-maildirs-extension")
+(depends-on "multi-term")
 (depends-on "multiple-cursors")
 (depends-on "nginx-mode")
 (depends-on "noctilux-theme")

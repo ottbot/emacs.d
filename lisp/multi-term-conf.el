@@ -1,6 +1,6 @@
 (require 'multi-term)
 
-(setq multi-term-program "/usr/bin/bash")
+(setq multi-term-program "/usr/local/bin/fish")
 
 (defun term-send-esc ()
   "Send ESC in term mode."
