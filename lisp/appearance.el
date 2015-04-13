@@ -1,16 +1,18 @@
-(load-theme 'smyx t)
+(load-theme 'base16-default t)
+;(load-theme 'smyx t)
 
 (display-time-mode 1)
 (fringe-mode 0)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+(powerline-vim-theme)
+
 ;; org-mode colors
 (setq org-todo-keyword-faces
       '(("INPR" . (:foreground "yellow" :weight bold))
         ("DONE" . (:foreground "green" :weight bold))
         ("IMPEDED" . (:foreground "red" :weight bold))))
-
 
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
