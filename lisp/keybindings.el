@@ -17,10 +17,6 @@
 (global-unset-key (kbd "<C-down>"))
 (global-unset-key (kbd "<C-up>"))
 
-(global-unset-key (kbd "C-s"))
-(global-set-key (kbd "C-s") 'swiper)
-
-
 (global-unset-key (kbd "M-c"))
 (global-set-key (kbd "M-c") 'ace-window)
 
