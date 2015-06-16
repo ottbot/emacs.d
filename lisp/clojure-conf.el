@@ -1,5 +1,7 @@
 (require 'clojure-mode)
 
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
+
 (add-hook 'clojure-mode-hook 'paredit-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
@@ -19,6 +21,8 @@
   (DELETE 2)
   (HEAD 2)
   (ANY 2)
-  (context 2))
+  (context 2)
+  (describe 2)
+  (with 2))
 
 (provide 'clojure-conf)
