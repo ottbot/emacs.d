@@ -1,4 +1,4 @@
-(load-theme 'base16-default-dark t)
+ ;(load-theme 'base16-default-dark t)
 
 (display-time-mode 1)
 (fringe-mode 0)
