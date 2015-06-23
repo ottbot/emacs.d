@@ -10,26 +10,20 @@
 (global-set-key (kbd "M-P") 'backward-page)
 
 (global-set-key [f7] 'magit-status)
-(global-set-key [f8] 'mu4e)
+(global-set-key [f8] 'ansi-term)
 (global-set-key [f9] 'eshell)
 
 
-(global-unset-key (kbd "<C-down>"))
-(global-unset-key (kbd "<C-up>"))
+(avy-setup-default)
+(global-set-key (kbd "C-:") 'avy-goto-char)
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
+
 
 (global-unset-key (kbd "M-c"))
 (global-set-key (kbd "M-c") 'ace-window)
 
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-(autoload  'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
-
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-
 ;; remap C-a to `smarter-move-beginning-of-line
 (global-set-key [remap move-beginning-of-line]
                 'smarter-move-beginning-of-line)
-
 
 (provide 'keybindings)

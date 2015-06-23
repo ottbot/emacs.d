@@ -1,4 +1,4 @@
- ;(load-theme 'base16-default-dark t)
+(load-theme 'smyx t)
 
 (display-time-mode 1)
 (fringe-mode 0)
@@ -22,6 +22,6 @@
   (tool-bar-mode -1)
   (blink-cursor-mode -1))
 
-(set-default-font "Inconsolata-16")
+(set-default-font "Inconsolata-22")
 
 (provide 'appearance)
