@@ -1,6 +1,6 @@
 ;; rob's emacs
 
-(require 'cask "/usr/share/cask/cask.el")
+(require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
 (require 'pallet)

@@ -22,6 +22,6 @@
   (tool-bar-mode -1)
   (blink-cursor-mode -1))
 
-(set-default-font "Inconsolata-22")
+(set-default-font "Inconsolata-18")
 
 (provide 'appearance)
