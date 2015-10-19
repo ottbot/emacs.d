@@ -17,4 +17,15 @@
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
 
+
+;; for babel clojure
+(setq org-babel-clojure-backend 'cider)
+
+(setq org-src-fontify-natively t)
+(setq org-confirm-babel-evaluate nil)
+(setq org-src-window-setup 'current-window)
+
+
+
+
 (provide 'org-conf)

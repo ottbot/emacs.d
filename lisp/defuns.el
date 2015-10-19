@@ -3,6 +3,11 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+
+(defun named-ansi-terminal (title)
+  (interactive "sTitle: ")
+  (ansi-term "/bin/bash" title))
+
 (defun my-delete-trailing-whitespace ()
   (unless (member major-mode keep-trailing-whitespace-modes)
     (delete-trailing-whitespace)))

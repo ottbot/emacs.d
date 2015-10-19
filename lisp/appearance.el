@@ -1,11 +1,12 @@
-(load-theme 'smyx t)
+;(load-theme 'smyx t)
+(load-theme 'base16-eighties-dark t)
+
+(global-anzu-mode +1)
 
 (display-time-mode 1)
 (fringe-mode 0)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-
-(powerline-vim-theme)
 
 ;; org-mode colors
 (setq org-todo-keyword-faces
@@ -22,6 +23,11 @@
   (tool-bar-mode -1)
   (blink-cursor-mode -1))
 
-(set-default-font "Inconsolata-18")
+;;(set-default-font "SourceCodePro-20")
+(set-default-font "TriplicateT3c-22")
+
+
+
+(set-frame-parameter nil 'fullscreen 'fullboth)
 
 (provide 'appearance)
