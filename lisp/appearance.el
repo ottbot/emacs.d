@@ -1,5 +1,15 @@
+
+(require 'powerline)
+(require 'moe-theme)
+
+(setq moe-theme-highlight-buffer-id t)
+
+(powerline-moe-theme)
+(moe-theme-set-color 'w/b)
+
+(moe-dark)
+
 ;(load-theme 'smyx t)
-(load-theme 'base16-eighties-dark t)
 
 (global-anzu-mode +1)
 

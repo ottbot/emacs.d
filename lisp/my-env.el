@@ -11,4 +11,7 @@
 (setenv "ZOOKEEPER_ADDRESS" "localhost:2181")
 (setenv "SCHEMA_REGISTRY_URL" "http://localhost:8081")
 
+(setenv "RIEMANN_HOST" "localhost")
+(setenv "RIEMANN_PORT" "5555")
+
 (provide 'my-env)

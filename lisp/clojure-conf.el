@@ -46,7 +46,8 @@
   (ANY 2)
   (context 2)
   (describe 2)
-  (with 2))
+  (with 2)
+  (let-flow 2))
 
 (defun add-clj-refactor-hook ()
     (clj-refactor-mode 1)
