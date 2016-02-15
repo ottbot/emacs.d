@@ -13,6 +13,7 @@
 
 (add-to-list 'load-path lisp-dir)
 
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 (require 'my-env)
 (require 'company-conf)
@@ -35,12 +36,12 @@
 (require 'magit-conf)
 (require 'defuns)
 (require 'keybindings)
+(require 'mu4e-conf)
 (require 'appearance)
 
 ;; hooks
 (defvar keep-trailing-whitespace-modes)
 (setq keep-trailing-whitespace-modes '(org-mode))
-
 
 (add-hook 'before-save-hook 'my-delete-trailing-whitespace)
 
@@ -60,6 +61,7 @@
 ;; Variables
 (setq compilation-scroll-output t)
 (setq require-final-newline t)
+(setq ring-bell-function 'ignore)
 
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)

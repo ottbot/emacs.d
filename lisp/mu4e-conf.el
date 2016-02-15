@@ -5,13 +5,13 @@
 (setq mu4e-maildir "/Users/rob/.mail")
 
 (require 'sendmail)
-(require 'org-mu4e)
+;(require 'org-mu4e)
 
 ;; hooks
 (add-hook 'mu4e-compose-mode-hook
           (defun my-compose-stuff ()
             (set-fill-column 72)
-            (flyspell-mode)))
+            ))
 
 ;; my e-mail addresses
 (setq mu4e-user-mail-address-list '("rjcrim@gmail.com"
@@ -38,8 +38,6 @@
       mu4e-use-fancy-chars nil)
 
 
-
-
 (setq mu4e-view-show-images t)
 
 (when (fboundp 'imagemagick-register-types)
@@ -50,10 +48,10 @@
 
 ;; maildir locations
 (setq mu4e-maildir "~/.mail"
-      mu4e-sent-folder "/personal/[Gmail]_Sent Mail"
-      mu4e-drafts-folder "/personal/[Gmail]_Drafts"
-      mu4e-trash-folder "/personal/[Gmail]_All Mail"
-      mu4e-refile-folder "/personal/[Gmail]_All Mail"
+      mu4e-sent-folder "/personal/[Gmail]/.Sent Mail"
+      mu4e-drafts-folder "/personal/[Gmail]/.Drafts"
+      mu4e-trash-folder "/personal/[Gmail]/.All Mail"
+      mu4e-refile-folder "/personal/[Gmail]/.All Mail"
       smtpmail-queue-dir   "~/.mail/queue/cur")
 
 ;; sending mail
@@ -69,18 +67,18 @@
 (setq my-mu4e-account-alist
       '(("personal"
          (user-mail-address "rjcrim@gmail.com")
-         (mu4e-sent-folder "/personal/[Gmail]_Sent Mail")
-         (mu4e-drafts-folder "/personal/[Gmail]_Drafts")
-         (mu4e-refile-folder "/personal/[Gmail]_All Mail")
-         (mu4e-trash-folder  "/personal/[Gmail]_All Mail")
+         (mu4e-sent-folder "/personal/[Gmail]/.Sent Mail")
+         (mu4e-drafts-folder "/personal/[Gmail]/.Drafts")
+         (mu4e-refile-folder "/personal/[Gmail]/.All Mail")
+         (mu4e-trash-folder  "/personal/[Gmail]/.All Mail")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "rjcrim@gmail.com"))
         ("work"
          (user-mail-address "rob@fundingcircle.com")
-         (mu4e-sent-folder "/work/[Gmail]_Sent Mail")
-         (mu4e-drafts-folder "/work/[Gmail]_Drafts")
-         (mu4e-refile-folder "/work/[Gmail]_All Mail")
-         (mu4e-trash-folder  "/work/[Gmail]_All Mail")
+         (mu4e-sent-folder "/work/[Gmail]/.Sent Mail")
+         (mu4e-drafts-folder "/work/[Gmail]/.Drafts")
+         (mu4e-refile-folder "/work/[Gmail]/.All Mail")
+         (mu4e-trash-folder  "/work/[Gmail]/.All Mail")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "robert.crim@fundingcircle.com"))))
 
@@ -106,12 +104,12 @@
 (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
 ;; org-mode integration
-(setq mu4e-org-contacts-file "/home/rob/org/contacts.org")
-(add-to-list 'mu4e-headers-actions
-             '("org-contact-add" . mu4e-action-add-org-contact) t)
-(add-to-list 'mu4e-view-actions
-             '("org-contact-add" . mu4e-action-add-org-contact) t)
+;; (setq mu4e-org-contacts-file "/home/rob/org/contacts.org")
 
+;; (add-to-list 'mu4e-headers-actions
+;;              '("org-contact-add" . mu4e-action-add-org-contact) t)
+;; (add-to-list 'mu4e-view-actions
+;;              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
 
 (defun mu4e-msgv-action-view-in-browser (msg)
@@ -131,14 +129,6 @@
 (add-to-list 'mu4e-view-actions
              '("View in browser" . mu4e-msgv-action-view-in-browser) t)
 
-
-;; ;; headers in the overview
-;; (setq mu4e-headers-fields
-;;   '((:maildir       .  24)
-;;     (:date          .  24)
-;;     (:flags         .   6)
-;;     (:from          .  24)
-;;     (:subject       .  nil)))
 
 ;; set bookmarks
 (setq mu4e-bookmarks

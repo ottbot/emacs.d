@@ -1,4 +1,3 @@
-
 (require 'powerline)
 (require 'moe-theme)
 
@@ -34,10 +33,10 @@
   (blink-cursor-mode -1))
 
 ;;(set-default-font "SourceCodePro-20")
-(set-default-font "TriplicateT3c-22")
 
+(set-frame-font
+ (font-spec :family "Triplicate T3c" :size 14 :antialias t))
 
-
-(set-frame-parameter nil 'fullscreen 'fullboth)
+;(set-frame-parameter nil 'fullscreen 'fullboth)
 
 (provide 'appearance)
