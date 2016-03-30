@@ -3,6 +3,7 @@
 (source melpa)
 
 (depends-on "4clojure")
+(depends-on "ace-jump-buffer")
 (depends-on "ace-window")
 (depends-on "ack-and-a-half")
 (depends-on "alect-themes")
@@ -88,6 +89,7 @@
 (depends-on "popup")
 (depends-on "powerline")
 (depends-on "projectile")
+(depends-on "puml-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "request")
 (depends-on "rspec-mode")

@@ -24,6 +24,7 @@
 (require 'clojure-conf)
 (require 'css-conf)
 (require 'org-conf)
+(require 'plantuml-conf)
 (require 'tramp-conf)
 (require 'sane-defaults)
 (require 'ruby-conf)

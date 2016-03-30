@@ -25,6 +25,14 @@
 (setq org-confirm-babel-evaluate nil)
 (setq org-src-window-setup 'current-window)
 
+(setq org-src-preserve-indentation t)
+
+(require 'ob-plantuml)
+(setq org-plantuml-jar-path "/usr/local/opt/plantuml/plantuml.8031.jar")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t)))
 
 
 
