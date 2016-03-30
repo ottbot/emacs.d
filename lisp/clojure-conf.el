@@ -57,5 +57,11 @@
 (add-hook 'clojure-mode-hook #'add-clj-refactor-hook)
 (add-hook 'clojure-mode-hook #'add-clj-refactor-hook)
 
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (push '("partial " . ?∂) prettify-symbols-alist)))
+
+(add-hook 'clojure-mode-hook 'prettify-symbols-mode)
+
 
 (provide 'clojure-conf)
