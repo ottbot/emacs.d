@@ -1,6 +1,6 @@
-(dolist (p '("/usr/local/bin" "Library/TeX/texbin" "~/.cabal/bin"))
+(dolist (p '("/usr/local/bin" "Library/TeX/texbin" "/Users/rob/.cabal/bin"))
   (setenv "PATH" (concat (getenv "PATH") ":" p))
-  (setq exec-path (append exec-path '(p))))
+  (add-to-list 'exec-path p))
 
 (setenv "BOOT_CLOJURE_VERSION" "1.7.0")
 (setenv "BOOT_JVM_OPTIONS" "-client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xverify:none")
