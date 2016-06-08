@@ -1,6 +1,6 @@
 ;; rob's emacs
 
-(require 'cask "~/.cask/cask.el")
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 
 (require 'pallet)
@@ -24,7 +24,6 @@
 (require 'clojure-conf)
 (require 'css-conf)
 (require 'org-conf)
-(require 'plantuml-conf)
 (require 'tramp-conf)
 (require 'sane-defaults)
 (require 'ruby-conf)
@@ -37,7 +36,6 @@
 (require 'magit-conf)
 (require 'defuns)
 (require 'keybindings)
-(require 'mu4e-conf)
 (require 'appearance)
 
 ;; hooks
