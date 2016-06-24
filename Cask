@@ -40,6 +40,7 @@
 (depends-on "git-commit")
 (depends-on "go-mode")
 (depends-on "google-c-style")
+(depends-on "gradle-mode")
 (depends-on "graphviz-dot-mode")
 (depends-on "grunt")
 (depends-on "haml-mode")
