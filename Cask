@@ -8,6 +8,7 @@
 (depends-on "ample-theme")
 (depends-on "anzu")
 (depends-on "async")
+(depends-on "atom-one-dark-theme")
 (depends-on "avy")
 (depends-on "base16-theme")
 (depends-on "bbdb")

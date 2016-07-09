@@ -1,3 +1,5 @@
+(load-theme 'atom-one-dark t)
+
 (global-anzu-mode +1)
 
 (global-hl-line-mode)
