@@ -33,6 +33,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))
 
+(setq cider-repl-display-help-banner nil)
 (setq nrepl-log-messages t)
 (setq nrepl-hide-special-buffers t)
 

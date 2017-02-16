@@ -1,4 +1,4 @@
-(load-theme 'atom-one-dark t)
+(load-theme 'leuven t)
 
 (global-anzu-mode +1)
 
@@ -23,6 +23,6 @@
   (blink-cursor-mode -1))
 
 (set-frame-font
- (font-spec :family "Triplicate T3c" :size 14 :antialias t))
+ (font-spec :family "Triplicate T3c" :size 30 :antialias t))
 
 (provide 'appearance)
