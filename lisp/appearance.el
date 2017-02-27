@@ -1,4 +1,4 @@
-(load-theme 'leuven t)
+(load-theme 'base16-monokai t)
 
 (global-anzu-mode +1)
 
@@ -23,6 +23,6 @@
   (blink-cursor-mode -1))
 
 (set-frame-font
- (font-spec :family "Triplicate T3c" :size 20 :antialias t))
+ (font-spec :family "Source Code Pro" :size 15 :antialias t))
 
 (provide 'appearance)
