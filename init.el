@@ -81,7 +81,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
-   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+   ["#272822" "#f92672" "#a6e22e" "#f4bf75" "#66d9ef" "#ae81ff" "#66d9ef" "#f8f8f2"])
  '(auth-source-cache-expiry 7200)
  '(auth-source-debug nil)
  '(auth-source-do-cache t)
@@ -157,7 +157,7 @@ static char *gnus-pointer[] = {
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (avy dash sbt-mode hydra cider clojure-mode company git-commit hcl-mode helm helm-core inf-ruby ivy magit-popup markdown-mode scala-mode with-editor yasnippet yari yaml-mode xclip vagrant unkillable-scratch undo-tree tuareg tomatinho todotxt terraform-mode telephone-line swiper sublime-themes subatomic-theme ssh-config-mode sql-indent spacegray-theme soft-charcoal-theme smyx-theme smex slime scss-mode ruby-test-mode ruby-compilation ruby-block rspec-mode request rainbow-delimiters projectile powerline pig-mode php-mode perspective pastels-on-dark-theme paredit-menu paredit-everywhere pallet noctilux-theme nginx-mode multi-term mu4e-maildirs-extension molokai-theme moe-theme markdown-mode+ magit list-processes+ leuven-theme less-css-mode latest-clojure-libraries json-mode js2-mode inf-clojure hive haskell-mode haml-mode grunt graphviz-dot-mode gradle-mode google-c-style go-mode framemove flymake-ruby flymake-json flymake-jslint flx-ido feature-mode expand-region ensime elein dockerfile-mode dakrone-theme clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor buffer-move bbdb base16-theme atom-one-dark-theme anzu ample-theme alect-themes ace-window ace-jump-buffer)))
+    (async avy dash sbt-mode hydra cider clojure-mode company git-commit hcl-mode helm helm-core inf-ruby ivy magit-popup markdown-mode scala-mode with-editor yasnippet yari yaml-mode xclip vagrant unkillable-scratch undo-tree tuareg tomatinho todotxt terraform-mode telephone-line swiper sublime-themes subatomic-theme ssh-config-mode sql-indent spacegray-theme soft-charcoal-theme smyx-theme smex slime scss-mode ruby-test-mode ruby-compilation ruby-block rspec-mode request rainbow-delimiters projectile powerline pig-mode php-mode perspective pastels-on-dark-theme paredit-menu paredit-everywhere pallet noctilux-theme nginx-mode multi-term mu4e-maildirs-extension molokai-theme moe-theme markdown-mode+ magit list-processes+ leuven-theme less-css-mode latest-clojure-libraries json-mode js2-mode inf-clojure hive haskell-mode haml-mode grunt graphviz-dot-mode gradle-mode google-c-style go-mode framemove flymake-ruby flymake-json flymake-jslint flx-ido feature-mode expand-region ensime elein dockerfile-mode dakrone-theme clojure-mode-extra-font-locking clojure-cheatsheet clj-refactor buffer-move bbdb base16-theme atom-one-dark-theme anzu ample-theme alect-themes ace-window ace-jump-buffer)))
  '(rspec-compilation-buffer-name "*rspec compilation*")
  '(rspec-spec-command "rspec")
  '(rspec-use-bundler-when-possible t)

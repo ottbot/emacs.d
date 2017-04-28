@@ -36,6 +36,7 @@
 (setq cider-repl-display-help-banner nil)
 (setq nrepl-log-messages t)
 (setq nrepl-hide-special-buffers t)
+(setq cider-pprint-fn "fipp")
 
 (define-clojure-indent
   (defroutes 'defun)
