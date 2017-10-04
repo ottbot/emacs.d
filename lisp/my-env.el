@@ -1,4 +1,4 @@
-(dolist (p '("/usr/local/bin" "Library/TeX/texbin" "/Users/rob/.cabal/bin"))
+(dolist (p '("/usr/local/bin" "/Library/TeX/texbin" "/Users/rob/.cabal/bin"))
   (setenv "PATH" (concat (getenv "PATH") ":" p))
   (add-to-list 'exec-path p))
 
