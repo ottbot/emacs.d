@@ -1,4 +1,4 @@
-(load-theme 'base16-monokai t)
+(load-theme 'base16-tomorrow-night t)
 
 (global-anzu-mode +1)
 
