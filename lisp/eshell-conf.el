@@ -1,4 +1,5 @@
-(require 'eshell-sensitive-conf) ;; variables not for vc
+;;(require 'eshell-sensitive-conf) ;; variables not for vc
+
 (setenv "NODE_NO_READLINE" "1")
 (setenv "PAGER" "cat")
 (setenv "LANG" "en_US.UTF8")

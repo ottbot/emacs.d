@@ -23,6 +23,7 @@
   (blink-cursor-mode -1))
 
 (set-frame-font
- (font-spec :family "Source Code Pro" :size 15 :antialias t))
+ (font-spec :family "Source Code Pro" :size 24 :antialias t)
+ t t)
 
 (provide 'appearance)
