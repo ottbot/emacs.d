@@ -1,6 +1,7 @@
 (require 'package)
 
-(setq package-enable-at-startup nil)
+(setq package--init-file-ensured t
+      package-enable-at-startup nil)
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -14,5 +15,7 @@
 
 (eval-when-compile
   (require 'use-package))
+
+(setq use-package-always-ensure t)
 
 (provide 'rc-package)

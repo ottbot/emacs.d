@@ -1,22 +1,12 @@
 ;; ⊂(◉‿◉)つ
 
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'rc-package)
-(require 'rc-defaults)
 (require 'rc-funs)
+(require 'rc-defaults)
 
-
-(setq use-package-always-ensure t)
-
-
+(use-package undo-tree)
 (use-package diminish)
 (use-package bind-key)
 
@@ -25,8 +15,30 @@
   (require 'rc-exwm)
   (rc/exwm-config))
 
-(use-package ace-jump-mode
-  :bind ("C-." . ace-jump-mode))
+(use-package ace-window
+  :bind ("M-o" . ace-window))
+
+(use-package avy
+  :bind (("C-:" . avy-goto-char)
+	 ("C-'" . avy-goto-char-2)))
+
+(use-package counsel)
+
+(use-package ivy
+  :diminish ivy
+  :custom
+  (ivy-use-virtual-buffers t)
+  (enable-recursive-minibuffers t)  
+  :bind (("M-x" . counsel-M-x)
+	 ("C-s" . swiper)
+	 ("C-r" . swiper))
+  :config
+  (ivy-mode 1))
+
+(use-package company
+  :bind ("<C-tab>" . company-complete)
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
 
 (use-package unkillable-scratch
   :custom
@@ -38,7 +50,44 @@
 	auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-;; ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ
+(use-package clojure-mode)
+
+(use-package cider
+  :custom
+  (cider-repl-displau-help-banner nil)
+  (nrepl-log-messages t)
+  (nrepl-hide-special-buffers t))
+
+(use-package paredit
+  :diminish paredit-mode
+  :bind (:map paredit-mode-map
+	      ("C-c <right>" . paredit-forward-slurp-sexp)
+	      ("C-c <left>" . paredit-forward-barf-sexp)
+	      ("C-j" . 'eval-last-sexp))
+  :hook ((emacs-lisp-mode clojure-mode) . enable-paredit-mode))
+
+(use-package clj-refactor
+  :config
+  (add-hook 'clojure-mode-hook (lambda ()
+				 (clj-refactor-mode 1)
+				 (yas-minor-mode 1)
+				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
+
+(use-package magit)
+
+(use-package projectile
+  :diminish projectile-mode
+  :config
+  (projectile-cleanup-known-projects)
+  (projectile-global-mode))
+   
+
+(global-set-key [remap move-beginning-of-line]
+		'smarter-move-beginning-of-line)
+
+
+;;   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ    
+;;------------------------------------------------------------------------
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -47,7 +96,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
+    (clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
