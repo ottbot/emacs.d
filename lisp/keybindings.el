@@ -1,5 +1,3 @@
-(define-key global-map [f6] 'my-ido-project-files)
-
 
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -16,8 +14,6 @@
 (global-set-key (kbd "M-P") 'backward-page)
 
 (global-set-key [f7] 'magit-status)
-(global-set-key [f8] 'ansi-term)
-(global-set-key [f9] 'eshell)
 
 
 (avy-setup-default)

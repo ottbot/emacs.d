@@ -1,7 +1,6 @@
 (require 'exwm)
 (require 'exwm-randr)
 
-
 (defun rc/display-status ()
   (let ((res '()))
     (with-temp-buffer
@@ -28,16 +27,15 @@
 
 (defun rc/workspace-output-plist (display)
   (append '(0 "eDP-1")
-          (mapcan (lambda (i)
+          (cl-mapcan (lambda (i)
                     (list i display))
                   (number-sequence 1 9))))
-
 
 (defun rc/run-randr (ext)
   (shell-command
    (concat "xrandr --output eDP-1 --auto "
            (when ext
-             (concat  "--output " ext " --auto "))
+             (concat  "--output " ext " --auto --right-of eDP-1 "))
            "--primary")))
 
 (defun rc/exwm-auto-toggle-screen ()
@@ -46,11 +44,8 @@
     (setq exwm-randr-workspace-output-plist
           (rc/workspace-output-plist (or ext "eDP-1")))))
 
-
-
-(add-hook 'exwm-randr-screen-change-hook 'rc/exwm-auto-toggle-screen)
-
-;; Global key bindings
+(add-hook 'exwm-randr-screen-change-hook
+          'rc/exwm-auto-toggle-screen)
 
 (setq exwm-input-global-keys
       `(([?\s-r] . exwm-reset)
@@ -64,7 +59,6 @@
                         (interactive)
                         (exwm-workspace-switch-create ,i))))
                   (number-sequence 0 9))))
-
 
 (setq exwm-input-simulation-keys
       '(([?\C-b] . [left])
@@ -83,7 +77,6 @@
             (exwm-workspace-rename-buffer
              exwm-class-name)))
 
-
 (exwm-input-set-key
  (kbd "C-c s")
  (lambda ()
@@ -96,7 +89,8 @@
    (interactive)
    (start-process "st" "*Messages*" "st")))
 
-(exwm-enable)
+(defun rc/exwm-config ()
+  (exwm-randr-enable)
+  (exwm-enable))
 
-
-(provide 'exwm-conf)
+(provide 'rc-exwm)

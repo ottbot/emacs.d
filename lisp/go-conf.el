@@ -1,4 +1,0 @@
-
-
-
-(provide 'go-conf)

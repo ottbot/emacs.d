@@ -74,8 +74,8 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; Clobber suspsend frame
-(global-set-key (kbd "C-x C-z") nil)
-(global-set-key (kbd "C-z") nil)
-(put 'suspend-frame 'disabled t)
+;; (global-set-key (kbd "C-x C-z") nil)
+;; (global-set-key (kbd "C-z") nil)
+;; (put 'suspend-frame 'disabled t)
 
 (provide 'sane-defaults)
