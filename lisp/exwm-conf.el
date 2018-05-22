@@ -9,18 +9,46 @@
       (beginning-of-buffer)
       (save-match-data
         (while (re-search-forward "\\(\\\w+-[0-9]+\\) \\(\\\w+\\)" nil t)
-          (message (concat (match-string 1) (match-string 2)))
           (push (cons (match-string 1) (match-string 2)) res))))
     res))
 
+(defun rc/connected-displays (displays)
+  (mapcar 'car
+          (seq-filter (lambda (a)
+                        (string= "connected" (cdr a)))
+                      displays)))
+
+
+(defun rc/connected-external-displays (displays)
+  (seq-filter (lambda (x)
+                (member x '("DP-1" "DP-2")))
+              (rc/connected-displays displays)))
+
+(setq exwm-workspace-number 10)
+
+(defun rc/workspace-output-plist (display)
+  (append '(0 "eDP-1")
+          (mapcan (lambda (i)
+                    (list i display))
+                  (number-sequence 1 9))))
+
+
+(defun rc/run-randr (ext)
+  (shell-command
+   (concat "xrandr --output eDP-1 --auto "
+           (when ext
+             (concat  "--output " ext " --auto "))
+           "--primary")))
+
 (defun rc/exwm-auto-toggle-screen ()
-  (let ((displays (rc/display-status)))
-    (if (string= "disconnected" (cdr (assoc "DP-1" displays)))
-        (message "Hey now!!"))))
+  (let ((ext (car (rc/connected-external-displays (rc/display-status)))))
+    (rc/run-randr ext)
+    (setq exwm-randr-workspace-output-plist
+          (rc/workspace-output-plist (or ext "eDP-1")))))
 
 
 
-;; (add-hook 'exwm-randr-screen-change-hook        )
+(add-hook 'exwm-randr-screen-change-hook 'rc/exwm-auto-toggle-screen)
 
 ;; Global key bindings
 
@@ -55,7 +83,18 @@
             (exwm-workspace-rename-buffer
              exwm-class-name)))
 
-(setq exwm-workspace-number 4)
+
+(exwm-input-set-key
+ (kbd "C-c s")
+ (lambda ()
+   (interactive)
+   (start-process "slock" "*Messages*" "slock")))
+
+(exwm-input-set-key
+ (kbd "C-c RET")
+ (lambda ()
+   (interactive)
+   (start-process "st" "*Messages*" "st")))
 
 (exwm-enable)
 
