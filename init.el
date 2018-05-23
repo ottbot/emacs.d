@@ -29,7 +29,7 @@
 (use-package counsel)
 
 (use-package ivy
-  :diminish ivy
+  :diminish ivy-mode
   :custom
   (ivy-use-virtual-buffers t)
   (enable-recursive-minibuffers t)  
@@ -71,6 +71,7 @@
   :hook ((emacs-lisp-mode clojure-mode) . enable-paredit-mode))
 
 (use-package clj-refactor
+  :diminish yas-minor-mode
   :config
   (add-hook 'clojure-mode-hook (lambda ()
 				 (clj-refactor-mode 1)
