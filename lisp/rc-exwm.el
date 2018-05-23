@@ -47,12 +47,27 @@
 (add-hook 'exwm-randr-screen-change-hook
           'rc/exwm-auto-toggle-screen)
 
+
+(setq rc/exwm-workspace-visited-ring (make-ring 5))
+
+(defun rc/exwm-workspace-switch-previous ()
+  (interactive)
+  (unless (ring-empty-p rc/exwm-workspace-visited-ring)
+    (exwm-workspace-switch
+     (ring-ref rc/exwm-workspace-visited-ring 1))))
+
+(add-hook 'exwm-workspace-switch-hook
+          (lambda ()
+            (ring-insert rc/exwm-workspace-visited-ring
+                         exwm-workspace-current-index)))
+
 (setq exwm-input-global-keys
       `(([?\s-r] . exwm-reset)
         ([?\s-w] . exwm-workspace-switch)
         ([?\s-&] . (lambda (cmd)
                      (interactive (list (read-shell-command "$> ")))
                      (start-process-shell-command cmd nil cmd)))
+        (,[s-tab] . rc/exwm-workspace-switch-previous)
         ,@(mapcar (lambda (i)
                     `(,(kbd (format "s-%d" i)) .
                       (lambda ()
