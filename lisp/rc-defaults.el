@@ -6,6 +6,7 @@
 
 (global-hl-line-mode)
 
+(display-battery-mode)
 (display-time-mode 1)
 (fringe-mode 0)
 (menu-bar-mode -1)
