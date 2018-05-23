@@ -54,4 +54,6 @@
       ispell-program-name "/usr/bin/aspell"
       ispell-list-command "list")
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (provide 'rc-defaults)
