@@ -15,6 +15,10 @@
   (require 'rc-exwm)
   (rc/exwm-config))
 
+(use-package base16-theme
+  :config
+  (load-theme 'base16-tomorrow-night t))
+
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
@@ -38,7 +42,7 @@
 (use-package company
   :bind ("<C-tab>" . company-complete)
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (global-company-mode))
 
 (use-package unkillable-scratch
   :custom
@@ -96,7 +100,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
+    (base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
