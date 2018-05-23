@@ -89,6 +89,9 @@
    (interactive)
    (start-process "st" "*Messages*" "st")))
 
+(setq exwm-workspace-show-all-buffers t)
+(setq exwm-layout-show-all-buffers t)
+
 (defun rc/exwm-config ()
   (exwm-randr-enable)
   (exwm-enable))
