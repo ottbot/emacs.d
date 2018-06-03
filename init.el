@@ -32,7 +32,7 @@
   :diminish ivy-mode
   :custom
   (ivy-use-virtual-buffers t)
-  (enable-recursive-minibuffers t)  
+  (enable-recursive-minibuffers t)
   :bind (("M-x" . counsel-M-x)
 	 ("C-s" . swiper)
 	 ("C-r" . swiper))
@@ -85,13 +85,18 @@
   :config
   (projectile-cleanup-known-projects)
   (projectile-global-mode))
-   
+
+(use-package prodigy
+  :config
+  (require 'rc-prodigy)
+  (rc/prodigy-config))
+
 
 (global-set-key [remap move-beginning-of-line]
 		'smarter-move-beginning-of-line)
 
 
-;;   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ    
+;;   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ
 ;;------------------------------------------------------------------------
 
 (custom-set-variables
@@ -101,7 +106,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
+    (prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
