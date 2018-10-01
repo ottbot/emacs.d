@@ -1,5 +1,5 @@
 (set-frame-font
- (font-spec :family "Source Code Pro" :size 24 :antialias t)
+ (font-spec :family "Source Code Pro" :size 16 :antialias t)
  t t)
 
 
@@ -27,6 +27,7 @@
 (set-default 'indent-tabs-mode nil)
 (set-default 'indicate-empty-lines t)
 
+
 (modify-syntax-entry ?_ "w")
 (xterm-mouse-mode t)
 (mouse-wheel-mode t)
@@ -51,7 +52,7 @@
       uniquify-buffer-name-style 'forward
       frame-title-format '(buffer-file-name "%f" ("%b"))
       ring-bell-function 'ignore
-      ispell-program-name "/usr/bin/aspell"
+      ispell-program-name "/usr/local/bin/aspell"
       ispell-list-command "list")
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

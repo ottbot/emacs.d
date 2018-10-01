@@ -2,6 +2,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 (require 'rc-package)
 (require 'rc-funs)
 (require 'rc-defaults)
@@ -78,7 +81,9 @@
 				 (yas-minor-mode 1)
 				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
-(use-package magit)
+(use-package magit
+  :ensure t
+  :pin melpa-stable)
 
 (use-package projectile
   :diminish projectile-mode
@@ -106,7 +111,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
+    (evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
