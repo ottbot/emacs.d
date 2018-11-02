@@ -18,10 +18,6 @@
   (require 'rc-exwm)
   (rc/exwm-config))
 
-(use-package base16-theme
-  :config
-  (load-theme 'base16-tomorrow-night t))
-
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
@@ -43,8 +39,9 @@
   (ivy-mode 1))
 
 (use-package company
+  :ensure t
   :bind ("<C-tab>" . company-complete)
-  :config
+  :init
   (global-company-mode))
 
 (use-package unkillable-scratch
@@ -86,6 +83,7 @@
   :pin melpa-stable)
 
 (use-package projectile
+  :ensure t
   :diminish projectile-mode
   :config
   (projectile-cleanup-known-projects)
@@ -109,6 +107,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
  '(package-selected-packages
    (quote
     (evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package))))

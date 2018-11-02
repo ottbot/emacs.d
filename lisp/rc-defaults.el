@@ -1,5 +1,5 @@
 (set-frame-font
- (font-spec :family "Source Code Pro" :size 16 :antialias t)
+ (font-spec :family "Iosevka" :size 16 :antialias t)
  t t)
 
 
