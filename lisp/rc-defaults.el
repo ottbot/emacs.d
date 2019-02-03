@@ -1,10 +1,10 @@
 (set-frame-font
- (font-spec :family "Iosevka" :size 16 :antialias t)
+ (font-spec :family "Source Code Pro" :size 14 :antialias t)
  t t)
 
 
-
-(global-hl-line-mode)
+(load-theme 'base16-3024)
+;;(global-hl-line-mode)
 
 (display-battery-mode)
 (display-time-mode 1)
@@ -27,6 +27,10 @@
 (set-default 'indent-tabs-mode nil)
 (set-default 'indicate-empty-lines t)
 
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 (modify-syntax-entry ?_ "w")
 (xterm-mouse-mode t)
