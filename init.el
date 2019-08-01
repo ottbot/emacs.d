@@ -1,5 +1,6 @@
 ;; ⊂(◉‿◉)つ
 
+;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
@@ -58,7 +59,7 @@
 
 (use-package cider
   :custom
-  (cider-repl-displau-help-banner nil)
+  (cider-repl-display-help-banner nil)
   (nrepl-log-messages t)
   (nrepl-hide-special-buffers t))
 
@@ -78,6 +79,29 @@
 				 (yas-minor-mode 1)
 				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
+(use-package tuareg
+  :config
+  (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+    (when (and opam-share (file-directory-p opam-share))
+      ;; Register Merlin
+      (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+      (autoload 'merlin-mode "merlin" nil t nil)
+      ;; Automatically start it in OCaml buffers
+      (add-hook 'tuareg-mode-hook 'merlin-mode t)
+      (add-hook 'caml-mode-hook 'merlin-mode t)
+      ;; Use opam switch to lookup ocamlmerlin binary
+      (setq merlin-command 'opam))))
+
+(use-package utop
+  :config
+  (setq utop-command "opam config exec -- utop -emacs"))
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode))
+
+(use-package flycheck-ocaml)
+
 (use-package magit
   :ensure t
   :pin "melpa-stable")
@@ -95,11 +119,6 @@
   (projectile-cleanup-known-projects)
   (projectile-global-mode))
 
-(use-package prodigy
-  :config
-  (require 'rc-prodigy)
-  (rc/prodigy-config))
-
 
 (global-set-key [remap move-beginning-of-line]
 		'smarter-move-beginning-of-line)
@@ -116,14 +135,14 @@
  '(cider-repl-displau-help-banner nil t)
  '(custom-safe-themes
    (quote
-    ("b3bcf1b12ef2a7606c7697d71b934ca0bdd495d52f901e73ce008c4c9825a3aa" "760ce657e710a77bcf6df51d97e51aae2ee7db1fba21bbad07aab0fa0f42f834" "44961a9303c92926740fc4121829c32abca38ba3a91897a4eab2aa3b7634bed4" "3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
+    ("5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" "70f5a47eb08fe7a4ccb88e2550d377ce085fedce81cf30c56e3077f95a2909f2" "b3bcf1b12ef2a7606c7697d71b934ca0bdd495d52f901e73ce008c4c9825a3aa" "760ce657e710a77bcf6df51d97e51aae2ee7db1fba21bbad07aab0fa0f42f834" "44961a9303c92926740fc4121829c32abca38ba3a91897a4eab2aa3b7634bed4" "3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
  '(enable-recursive-minibuffers t)
  '(ivy-use-virtual-buffers t)
- '(nrepl-hide-special-buffers t t)
- '(nrepl-log-messages t t)
+ '(nrepl-hide-special-buffers t)
+ '(nrepl-log-messages t)
  '(package-selected-packages
    (quote
-    (julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
+    (utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
  '(unkillable-scratch-behaviour (quote bury) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -131,3 +150,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(provide 'init)
+;;; init.el ends here

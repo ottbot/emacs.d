@@ -1,9 +1,13 @@
 (set-frame-font
- (font-spec :family "Source Code Pro" :size 14 :antialias t)
+ (font-spec :family "Source Code Pro" :size 24 :antialias t)
  t t)
 
+(use-package apropospriate-theme
+  :config
+  (load-theme 'apropospriate-dark))
 
-(load-theme 'base16-3024)
+
+
 ;;(global-hl-line-mode)
 
 (display-battery-mode)

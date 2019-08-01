@@ -1,5 +1,6 @@
 (require 'exwm)
 (require 'exwm-randr)
+(require 'exwm-systemtray)
 
 (setq exwm-input-global-keys
       `(([?\s-r] . exwm-reset)
@@ -105,6 +106,7 @@
      (interactive)
      (start-process "slock" "*Messages*" "slock")))
 
+  (exwm-systemtray-enable)
   (exwm-randr-enable)
   (exwm-enable))
 

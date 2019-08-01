@@ -19,6 +19,7 @@ recentf
 /lisp/eshell-sensitive-conf.el
 /projectile-bookmarks.eld
 /smex-items
+/transient/
 /network-security.data
 elpa/
 .last-package-update-day
