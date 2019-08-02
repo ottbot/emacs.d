@@ -1,3 +1,4 @@
+
 ;; ⊂(◉‿◉)つ
 
 ;;; Code:
@@ -79,6 +80,7 @@
 				 (yas-minor-mode 1)
 				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
+
 (use-package tuareg
   :config
   (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
@@ -92,9 +94,12 @@
       ;; Use opam switch to lookup ocamlmerlin binary
       (setq merlin-command 'opam))))
 
+
 (use-package utop
+  ;;:bind ([remap tuareg-eval-phrase] . utop-eval-phrase)
   :config
-  (setq utop-command "opam config exec -- utop -emacs"))
+  (setq utop-command "opam config exec -- utop -emacs")
+  (add-hook 'tuareg-mode-hook 'utop-minor-mode))
 
 (use-package flycheck
   :config

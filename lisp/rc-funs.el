@@ -1,3 +1,12 @@
+;;; rc-funs -- summary
+;;; commentary:
+;;; just some functions
+
+;;; code:
+(defun if-mac (x y)
+  "Return X if on a Mac, else you get Y."
+  (if (eq system-type 'darwin) x y))
+
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -38,3 +47,4 @@ point reaches the beginning or end of the buffer, stop there."
       (move-beginning-of-line 1))))
 
 (provide 'rc-funs)
+;;; rc-funs.el ends here

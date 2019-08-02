@@ -1,12 +1,14 @@
+;;; rc-defaults -- summary
+;;; commentary:
+;;; sets apprearence and personal preferences
+;;; code:
 (set-frame-font
- (font-spec :family "Source Code Pro" :size 24 :antialias t)
+ (font-spec :family "Source Code Pro" :size (if-mac 16 24) :antialias t)
  t t)
 
 (use-package apropospriate-theme
   :config
-  (load-theme 'apropospriate-dark))
-
-
+  (load-theme 'apropospriate-dark t))
 
 ;;(global-hl-line-mode)
 
