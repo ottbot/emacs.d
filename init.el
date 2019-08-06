@@ -82,19 +82,13 @@
 				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
 
-(use-package tuareg
-  :config
-  (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
-    (when (and opam-share (file-directory-p opam-share))
-      ;; Register Merlin
-      (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-      (autoload 'merlin-mode "merlin" nil t nil)
-      ;; Automatically start it in OCaml buffers
-      (add-hook 'tuareg-mode-hook 'merlin-mode t)
-      (add-hook 'caml-mode-hook 'merlin-mode t)
-      ;; Use opam switch to lookup ocamlmerlin binary
-      (setq merlin-command 'opam))))
+(use-package tuareg)
 
+(use-package merlin
+  :config
+  (add-hook 'tuareg-mode-hook 'merlin-mode t)
+  (add-hook 'caml-mode-hook 'merlin-mode t)
+  (setq merlin-command 'opam))
 
 (use-package utop
   ;;:bind ([remap tuareg-eval-phrase] . utop-eval-phrase)
