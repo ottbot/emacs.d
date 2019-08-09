@@ -43,8 +43,12 @@
 (use-package company
   :ensure t
   :bind ("<C-tab>" . company-complete)
-  :init
-  (global-company-mode))
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package company-quickhelp
+  :config
+  (company-quickhelp-mode))
 
 (use-package unkillable-scratch
   :custom
@@ -58,11 +62,8 @@
 
 (use-package clojure-mode)
 
-(use-package cider
-  :custom
-  (cider-repl-display-help-banner nil)
-  (nrepl-log-messages t)
-  (nrepl-hide-special-buffers t))
+(use-package inf-clojure
+  :hook (clojure-mode . inf-clojure-minor-mode))
 
 (use-package paredit
   :diminish paredit-mode
@@ -147,7 +148,7 @@
  '(nrepl-log-messages t)
  '(package-selected-packages
    (quote
-    (utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
+    (company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
  '(unkillable-scratch-behaviour (quote bury) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
