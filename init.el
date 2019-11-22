@@ -15,11 +15,6 @@
 (use-package diminish)
 (use-package bind-key)
 
-(use-package exwm
-  :config
-  (require 'rc-exwm)
-  (rc/exwm-config))
-
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
@@ -63,7 +58,8 @@
 (use-package clojure-mode)
 
 (use-package inf-clojure
-  :hook (clojure-mode . inf-clojure-minor-mode))
+;;  :hook (clojure-mode . inf-clojure-minor-mode)
+  )
 
 (use-package paredit
   :diminish paredit-mode
@@ -81,26 +77,11 @@
 				 (yas-minor-mode 1)
 				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
-
-(use-package tuareg)
-
-(use-package merlin
-  :config
-  (add-hook 'tuareg-mode-hook 'merlin-mode t)
-  (add-hook 'caml-mode-hook 'merlin-mode t)
-  (setq merlin-command 'opam))
-
-(use-package utop
-  ;;:bind ([remap tuareg-eval-phrase] . utop-eval-phrase)
-  :config
-  (setq utop-command "opam config exec -- utop -emacs")
-  (add-hook 'tuareg-mode-hook 'utop-minor-mode))
+(require 'rc-ml)
 
 (use-package flycheck
   :config
   (global-flycheck-mode))
-
-(use-package flycheck-ocaml)
 
 (use-package magit
   :ensure t
@@ -142,7 +123,7 @@
  '(nrepl-log-messages t)
  '(package-selected-packages
    (quote
-    (company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
+    (ocp-index ocp-indent reason-mode company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
  '(unkillable-scratch-behaviour (quote bury) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
