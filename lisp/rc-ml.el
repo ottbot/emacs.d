@@ -23,7 +23,7 @@
                    (add-hook 'before-save-hook 'refmt-before-save)
                    (merlin-mode)))
   :config
-  (let* ((refmt-bin (yarn-cmd "refmt"))
+  (let* ((refmt-bin (yarn-cmd "refmt ----where"))
          (merlin-bin (yarn-cmd "ocamlmerlin ----where"))
          (merlin-base-dir (when merlin-bin
                           (replace-regexp-in-string "bin/ocamlmerlin$" "" merlin-bin))))

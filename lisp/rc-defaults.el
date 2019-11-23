@@ -2,6 +2,7 @@
 ;;; commentary:
 ;;; sets apprearence and personal preferences
 ;;; code:
+
 (set-frame-font
  (font-spec :family "Source Code Pro" :size (if-mac 16 26) :antialias t)
  t t)
@@ -10,7 +11,7 @@
   :config
   (load-theme 'apropospriate-dark t))
 
-;;(global-hl-line-mode)
+(global-hl-line-mode)
 
 (display-battery-mode)
 (display-time-mode 1)
@@ -51,8 +52,10 @@
 (delete-selection-mode 1)
 (recentf-mode 1)
 
-(setq x-select-enable-clipboard t
-      global-auto-revert-non-file-buffers t
+(defvar ispell-program-name "/usr/local/bin/aspell")
+(defvar ispell-list-command "list")
+
+(setq select-enable-clipboard t
       line-number-mode t
       column-number-mode t
       fill-column 80
@@ -61,10 +64,9 @@
       shift-select-mode nil
       uniquify-buffer-name-style 'forward
       frame-title-format '(buffer-file-name "%f" ("%b"))
-      ring-bell-function 'ignore
-      ispell-program-name "/usr/local/bin/aspell"
-      ispell-list-command "list")
+      ring-bell-function 'ignore)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (provide 'rc-defaults)
+;;; rc-defaults.el ends here
