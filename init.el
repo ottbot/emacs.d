@@ -41,10 +41,6 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
-(use-package company-quickhelp
-  :config
-  (company-quickhelp-mode))
-
 (use-package unkillable-scratch
   :custom
   (unkillable-scratch-behaviour 'bury))

@@ -52,8 +52,8 @@
 (delete-selection-mode 1)
 (recentf-mode 1)
 
-(defvar ispell-program-name "/usr/local/bin/aspell")
-(defvar ispell-list-command "list")
+(defvar ispell-program-name)
+(defvar ispell-list-command)
 
 (setq select-enable-clipboard t
       line-number-mode t
@@ -64,7 +64,9 @@
       shift-select-mode nil
       uniquify-buffer-name-style 'forward
       frame-title-format '(buffer-file-name "%f" ("%b"))
-      ring-bell-function 'ignore)
+      ring-bell-function 'ignore
+      ispell-program-name "/usr/local/bin/aspell"
+      ispell-list-command "list")
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
