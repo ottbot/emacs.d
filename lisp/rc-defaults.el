@@ -7,11 +7,9 @@
  (font-spec :family "Source Code Pro" :size (if-mac 16 26) :antialias t)
  t t)
 
-(use-package apropospriate-theme
+(use-package atom-dark-theme
   :config
-  (load-theme 'apropospriate-dark t))
-
-(global-hl-line-mode)
+  (load-theme 'atom-dark))
 
 (display-battery-mode)
 (display-time-mode 1)

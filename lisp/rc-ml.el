@@ -28,9 +28,6 @@
          (merlin-base-dir (when merlin-bin
                           (replace-regexp-in-string "bin/ocamlmerlin$" "" merlin-bin))))
 
-    (message "~~~>")
-    (message merlin-bin)
-
     ;; Add merlin.el to the emacs load path and tell emacs where to find ocamlmerlin
     (when merlin-bin
       (add-to-list 'load-path (concat merlin-base-dir "share/emacs/site-lisp/"))
@@ -44,20 +41,27 @@
   (setq merlin-ac-setup t))
 
 
+
+(use-package tuareg
+  :config
+  (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
+    (when (and opam-share (file-directory-p opam-share))
+      (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
+      (autoload 'ocamlformat "ocamlformat" nil t nil)
+      ;; Automatically start it in OCaml buffers
+
+
+      (setq merlin-command 'opam)
+
+      (add-hook 'tuareg-mode-hook (lambda ()
+                                    (add-hook 'before-save-hook #'ocamlformat-before-save)
+                                    (utop-minor-mode)
+                                    (company-mode)
+                                    (merlin-mode))))))
+
 (use-package utop
   :custom
-  (utop-edit-command nil)
-  :hook
-  (reason-mode . (lambda ()
-                   (setq utop-command "rtop -emacs")
-                   (setq utop-prompt
-                         (lambda ()
-                           (let ((prompt (format "rtop[%d]> " utop-command-number)))
-                             (add-text-properties 0 (length prompt) '(face utop-prompt) prompt)
-                             prompt)))
-                   (utop-minor-mode))))
-
-
+  (utop-edit-command nil))
 
 
 (provide 'rc-ml)

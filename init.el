@@ -75,6 +75,8 @@
 
 (require 'rc-ml)
 
+(use-package web-mode)
+
 (use-package flycheck
   :config
   (global-flycheck-mode))
@@ -112,15 +114,16 @@
  '(cider-repl-displau-help-banner nil t)
  '(custom-safe-themes
    (quote
-    ("5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" "70f5a47eb08fe7a4ccb88e2550d377ce085fedce81cf30c56e3077f95a2909f2" "b3bcf1b12ef2a7606c7697d71b934ca0bdd495d52f901e73ce008c4c9825a3aa" "760ce657e710a77bcf6df51d97e51aae2ee7db1fba21bbad07aab0fa0f42f834" "44961a9303c92926740fc4121829c32abca38ba3a91897a4eab2aa3b7634bed4" "3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
+    ("2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "5a0eee1070a4fc64268f008a4c7abfda32d912118e080e18c3c865ef864d1bea" "70f5a47eb08fe7a4ccb88e2550d377ce085fedce81cf30c56e3077f95a2909f2" "b3bcf1b12ef2a7606c7697d71b934ca0bdd495d52f901e73ce008c4c9825a3aa" "760ce657e710a77bcf6df51d97e51aae2ee7db1fba21bbad07aab0fa0f42f834" "44961a9303c92926740fc4121829c32abca38ba3a91897a4eab2aa3b7634bed4" "3380a2766cf0590d50d6366c5a91e976bdc3c413df963a0ab9952314b4577299" default)))
  '(enable-recursive-minibuffers t)
  '(ivy-use-virtual-buffers t)
  '(nrepl-hide-special-buffers t)
  '(nrepl-log-messages t)
  '(package-selected-packages
    (quote
-    (ocp-index ocp-indent reason-mode company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
- '(unkillable-scratch-behaviour (quote bury) t))
+    (atom-dark-theme atomic-dark-theme ocamlformat web-mode ocp-index ocp-indent reason-mode company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
+ '(unkillable-scratch-behaviour (quote bury) t)
+ '(utop-edit-command nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
