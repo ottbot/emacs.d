@@ -1,3 +1,6 @@
+;;; rc-package.el -- package defaults
+;;; Commentary:
+;;; Code:
 (require 'package)
 
 (setq package--init-file-ensured t
@@ -19,3 +22,4 @@
 (setq use-package-always-ensure t)
 
 (provide 'rc-package)
+;;;  rc-package.el ends here

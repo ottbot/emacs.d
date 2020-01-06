@@ -53,10 +53,6 @@
 
 (use-package clojure-mode)
 
-(use-package inf-clojure
-;;  :hook (clojure-mode . inf-clojure-minor-mode)
-  )
-
 (use-package paredit
   :diminish paredit-mode
   :bind (:map paredit-mode-map
@@ -85,11 +81,8 @@
   :ensure t
   :pin "melpa-stable")
 
-(use-package julia-mode)
-
-(use-package julia-repl
-  :init
-  (add-hook 'julia-mode-hook 'julia-repl-mode))
+(use-package ess)
+(use-package poly-markdown)
 
 (use-package projectile
   :ensure t
@@ -121,7 +114,7 @@
  '(nrepl-log-messages t)
  '(package-selected-packages
    (quote
-    (atom-dark-theme atomic-dark-theme ocamlformat web-mode ocp-index ocp-indent reason-mode company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
+    (poly-markdown ess merlin atom-dark-theme atomic-dark-theme ocamlformat web-mode ocp-index ocp-indent reason-mode company-quickhelp company-mode inf-clojure utop flycheck-ocaml tuareg flycheck apropospriate-theme julia evil-magit 0blayout prodigy base16-theme clj-refactor cider clojure-mode magit counsel company ivy ace-window paredit unkillable-scratch auto-package-update ace-jump-mode diminish exwm use-package)))
  '(unkillable-scratch-behaviour (quote bury) t)
  '(utop-edit-command nil))
 (custom-set-faces
