@@ -4,12 +4,14 @@
 ;;; code:
 
 (set-frame-font
- (font-spec :family "Source Code Pro" :size (if-mac 16 26) :antialias t)
+ (font-spec :family "Source Code Pro" :size 26 :antialias t)
  t t)
 
-(use-package atom-dark-theme
-  :config
-  (load-theme 'atom-dark))
+(global-display-line-numbers-mode)
+(setq display-line-numbers-type t)
+
+
+(setq ansi-color-for-comint-mode t)
 
 (display-battery-mode)
 (display-time-mode 1)
