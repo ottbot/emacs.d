@@ -11,23 +11,8 @@
 (use-package diminish)
 (use-package bind-key)
 
-(use-package nord-theme
-  :config
-  (load-theme 'nord t))
-
-(use-package all-the-icons)
-
-(use-package doom-modeline
-  :config
-  (setq doom-modeline-height 10)
-  (setq doom-modeline-buffer-encoding nil)
-  (setq doom-modeline-major-mode-icon nil)
-  :hook (after-init . doom-modeline-mode))
-
 
 ;; TODO -- hook up hydra commands.
-(use-package neotree)
-
 (use-package ace-window
   :bind ("C-x o" . ace-window))
 
@@ -67,13 +52,6 @@
 	      ("C-j" . 'eval-last-sexp))
   :hook ((emacs-lisp-mode clojure-mode) . enable-paredit-mode))
 
-(use-package clj-refactor
-  :diminish yas-minor-mode
-  :config
-  (add-hook 'clojure-mode-hook (lambda ()
-				 (clj-refactor-mode 1)
-				 (yas-minor-mode 1)
-				 (cljr-add-keybindings-with-prefix "C-c C-m"))))
 
 (require 'rc-ml)
 
@@ -84,9 +62,6 @@
   (global-flycheck-mode))
 
 (use-package magit)
-
-(use-package ess)
-(use-package poly-markdown)
 
 (use-package projectile
   :diminish projectile-mode

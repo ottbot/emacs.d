@@ -4,7 +4,7 @@
 ;;; code:
 
 (set-frame-font
- (font-spec :family "Source Code Pro" :size 26 :antialias t)
+ (font-spec :family "Source Code Pro" :size 14 :antialias t)
  t t)
 
 (global-display-line-numbers-mode)
