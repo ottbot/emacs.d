@@ -7,6 +7,8 @@
  (font-spec :family "Source Code Pro" :size 14 :antialias t)
  t t)
 
+(add-path "/usr/local/bin")
+
 (global-display-line-numbers-mode)
 (setq display-line-numbers-type t)
 

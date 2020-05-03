@@ -1,50 +1,38 @@
 ;;; rc-ml.el --- summary
 ;;; Commentary:
-;;; TODO: add support for reason.
 ;;; Code:
 
-
-(defvar opam-bin "/usr/local/bin/opam")
-
 (defun opam-exec (cmd)
-  (concat
-   opam-bin
-   " exec -- "
-   cmd))
+  "Get string that prefixes CMD with absolute path fpr \"opam exec --\"."
+  (concat "opam exec -- " cmd))
 
 (defun opam-bin-path ()
+  "Get the path for binaries installed by opam."
   (replace-regexp-in-string
    "\n\\'" ""
-   (shell-command-to-string
-    (concat opam-bin " config var bin --safe"))))
+   (shell-command-to-string "opam config var bin --safe")))
+
+(add-path (opam-bin-path))
 
 (defun opam-bin (cmd)
+  "Prefix your CMD with the path for opam bin."
   (concat (opam-bin-path) "/" cmd))
 
-(use-package caml :ensure t)
+(use-package merlin)
 
-(use-package merlin
-  :config
-  (setq merlin-command (opam-bin "ocamlmerlin"))
-  :hook
-  (tuareg-mode . merlin-mode)
-  (caml-mode . merlin-mode))
+(use-package caml
+  :hook (merlin-mode))
 
 (use-package dune)
 
 (use-package tuareg
-  :hook
-  (tuareg-mode . company-mode))
+  :hook (company-mode merlin-mode utop-minor-mode))
 
 (use-package utop
   :config
-  (setq utop-command (opam-exec "dune utop . -- -emacs"))
-  :hook
-  (tuareg-mode . utop-minor-mode))
+  (setq utop-command "dune utop . -- -emacs"))
 
-(use-package ocp-indent
-  :init
-  (setq ocp-indent-path (opam-bin "/ocp-indent")))
+(use-package ocp-indent)
 
 (provide 'rc-ml)
 ;;; rc-ml ends here

@@ -3,9 +3,16 @@
 ;;; just some functions
 
 ;;; code:
-(defun if-mac (x y)
+(defun add-path (path)
+  "Add the PATH to environment variable and the `exec-path`."
+  (setenv "PATH" (concat (getenv "PATH") ":" path))
+  (setq exec-path (append exec-path (list path))))
+
+(defvar is-mac (eq system-type 'darwin))
+
+(defun when-mac (x y)
   "Return X if on a Mac, else you get Y."
-  (if (eq system-type 'darwin) x y))
+  (if is-mac x y))
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
