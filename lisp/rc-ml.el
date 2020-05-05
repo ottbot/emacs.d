@@ -21,16 +21,27 @@
 (use-package merlin)
 
 (use-package caml
-  :hook (merlin-mode))
+  :config
+  (add-hook 'caml-mode-hook 'merlin-mode))
 
 (use-package dune)
-
-(use-package tuareg
-  :hook (company-mode merlin-mode utop-minor-mode))
 
 (use-package utop
   :config
   (setq utop-command "dune utop . -- -emacs"))
+
+(defun rc/tuareg-hooks ()
+  (merlin-mode)
+  (utop-minor-mode)
+  (electric-pair-local-mode))
+
+(use-package tuareg
+  :config
+  (add-hook 'tuareg-mode-hook 'rc/tuareg-hooks))
+
+
+
+
 
 (use-package ocp-indent)
 

@@ -2,6 +2,7 @@
 ;; ⊂(◉‿◉)つ
 
 ;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'rc-straight)
 (require 'rc-funs)
@@ -19,6 +20,8 @@
   (load-theme 'spacemacs-dark t))
 
 ;; TODO -- hook up hydra commands.
+
+
 (use-package ace-window
   :bind ("C-x o" . ace-window))
 
@@ -39,10 +42,14 @@
   :config
   (ivy-mode 1))
 
+(use-package crux
+  :config
+  (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line))
+
 (use-package company
   :bind ("<C-tab>" . company-complete)
   :config
-  (add-hook 'after-init-hook 'global-company-mode))
+  (global-company-mode))
 
 (use-package unkillable-scratch
   :custom
@@ -52,7 +59,16 @@
   :config
   (global-flycheck-mode))
 
-(use-package flycheck-clj-kondo)
+
+(use-package magit)
+
+(use-package projectile
+  :diminish projectile-mode
+  :config
+  (projectile-cleanup-known-projects)
+  (projectile-global-mode))
+
+(use-package electric)
 
 (use-package cider)
 
@@ -67,18 +83,6 @@
   :hook ((emacs-lisp-mode clojure-mode) . enable-paredit-mode))
 
 (require 'rc-ml)
-
-(use-package magit)
-
-(use-package projectile
-  :diminish projectile-mode
-  :config
-  (projectile-cleanup-known-projects)
-  (projectile-global-mode))
-
-
-(global-set-key [remap move-beginning-of-line]
-		'smarter-move-beginning-of-line)
 
 
 ;;   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ

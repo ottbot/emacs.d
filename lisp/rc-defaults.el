@@ -7,6 +7,8 @@
  (font-spec :family "Source Code Pro" :size 14 :antialias t)
  t t)
 
+(setq custom-file (make-temp-file "emacs-custom.el"))
+
 (add-path "/usr/local/bin")
 
 (global-display-line-numbers-mode)
