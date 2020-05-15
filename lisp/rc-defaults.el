@@ -1,6 +1,6 @@
 ;;; rc-defaults -- summary
 ;;; commentary:
-;;; sets apprearence and personal preferences
+;;; set up some environment, apprearence, and personal preferences
 ;;; code:
 
 (set-frame-font
@@ -9,13 +9,9 @@
 
 (setq custom-file (make-temp-file "emacs-custom.el"))
 
-(add-path "/usr/local/bin")
+(rc/add-path "/usr/local/bin")
 
 (global-display-line-numbers-mode)
-(setq display-line-numbers-type t)
-
-
-(setq ansi-color-for-comint-mode t)
 
 (display-battery-mode)
 (display-time-mode 1)
@@ -58,10 +54,14 @@
 
 (defvar ispell-program-name)
 (defvar ispell-list-command)
+(defvar display-line-numbers-type)
+(defvar ansi-color-for-comint-mode)
 
 (setq select-enable-clipboard t
       line-number-mode t
       column-number-mode t
+      display-line-numbers-type t
+      ansi-color-for-comint-mode t
       fill-column 80
       echo-keystrokes 0.1
       inhibit-startup-message t

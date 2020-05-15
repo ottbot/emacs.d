@@ -1,7 +1,9 @@
-;;; rc-straight.el -- package defaults
-;;; Commentary:
-;;; Code:
+;;; rc-straight.el --- summary
+;;; commentary:
+;;; Use straight.el instead of package.el
+;;; code:
 
+(declare-function straight-use-package MELPA-STYLE-RECEPIE)
 (defvar bootstrap-version)
 (defvar straight-use-package-by-default t)
 

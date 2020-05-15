@@ -3,18 +3,18 @@
 ;;; just some functions
 
 ;;; code:
-(defun add-path (path)
+(defun rc/add-path (path)
   "Add the PATH to environment variable and the `exec-path`."
   (setenv "PATH" (concat (getenv "PATH") ":" path))
   (setq exec-path (append exec-path (list path))))
 
 (defvar is-mac (eq system-type 'darwin))
 
-(defun when-mac (x y)
+(defun rc/when-mac (x y)
   "Return X if on a Mac, else you get Y."
   (if is-mac x y))
 
-(defun rename-file-and-buffer (new-name)
+(defun rc/rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
