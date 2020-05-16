@@ -78,8 +78,9 @@
   (global-flycheck-mode))
 
 (use-package magit
-  :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (bind-key "C-x g" 'magit))
 
 (use-package electric
   :ensure t)
