@@ -9,8 +9,8 @@
   "Get the path for binaries installed by opam."
   (rc/shell-command-to-trimmed-string "opam config var bin --safe"))
 
-(defun rc/opam-site-lisp-path ()
-  "Get the path for opam's share dir."
+(defun rc/opam-lisp-path ()
+  "Get the path for opam's share site-lisp dir."
   (concat
    (rc/shell-command-to-trimmed-string "opam config var share")
    "/emacs/site-lisp"))
@@ -44,26 +44,36 @@
   (electric-pair-local-mode)
   (ocamlformat-before-save))
 
-;;; run setup --------------------
+
+;;; ======================================================
+;;; now the setup -- these packages are installed via opam
+
 (rc/add-path (rc/opam-bin-path))
-(add-to-list 'load-path (rc/opam-site-lisp-path))
+(add-to-list 'load-path (rc/opam-lisp-path))
 
-(require 'merlin)
-(setq-default merlin-completion-with-doc t)
+(use-package merlin
+  :config
+  (setq-default merlin-completion-with-doc t))
 
-(require 'dune)
-(require 'tuareg)
+(use-package dune)
 
-(add-hook 'tuareg-mode-hook 'rc/ocaml-hooks)
+(use-package tuareg
+  :mode ("\\.ml[ip]?\\'" . tuareg-mode)
+  :config
+  (add-hook 'tuareg-mode-hook 'rc/ocaml-hooks))
 
-(require 'ocamlformat)
-(setq-default ocamlformat-enable 'enable-outside-detected-project
-              ocamlformat-show-errors nil)
+(use-package ocamlformat
+  :config
+  (setq-default ocamlformat-enable 'enable-outside-detected-project
+                ocamlformat-show-errors nil))
 
-(require 'utop)
-(setq-default utop-command "dune utop . -- -emacs")
+(use-package utop
+  :config
+  (setq-default utop-command "dune utop . -- -emacs"))
 
-(require 'ocp-indent)
+(use-package ocp-indent)
+
+(use-package ocp-index)
 
 (provide 'rc-ocaml)
 ;;; rc-ocaml.el ends here
