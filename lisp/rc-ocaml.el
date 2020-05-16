@@ -73,7 +73,5 @@
 
 (use-package ocp-indent)
 
-(use-package ocp-index)
-
 (provide 'rc-ocaml)
 ;;; rc-ocaml.el ends here
