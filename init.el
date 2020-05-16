@@ -3,11 +3,13 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'rc-straight)
 (require 'rc-funs)
 (require 'rc-defaults)
+
+(require 'rc-ocaml)
 
 (use-package undo-tree)
 (use-package diminish)
@@ -16,7 +18,7 @@
 (use-package spacemacs-theme
   :defer t
   :init
-  (load-theme 'spacemacs-dark t))
+  (load-theme 'spacemacs-light t))
 
 (use-package ace-window
   :bind ("C-x o" . ace-window))
@@ -51,7 +53,7 @@
 
 (use-package unkillable-scratch
   :config
-  (unkillable-scratch-buffer t)
+  (unkillable-scratch-buffer)
   :custom
   (unkillable-scratch-behaviour 'bury))
 
@@ -62,12 +64,6 @@
 
 
 (use-package magit)
-
-(use-package projectile
-  :diminish projectile-mode
-  :config
-  (projectile-cleanup-known-projects)
-  (projectile-global-mode))
 
 (use-package electric)
 
@@ -83,47 +79,11 @@
 	      ("C-j" . 'eval-last-sexp))
   :hook ((emacs-lisp-mode clojure-mode dune-mode) . enable-paredit-mode))
 
-(defun rc/opam-bin-path ()
-  "Get the path for binaries installed by opam."
-  (replace-regexp-in-string
-   "\n\\'" ""
-   (shell-command-to-string "opam config var bin --safe")))
-
-(rc/add-path (rc/opam-bin-path))
-
-(defun rc/opam-bin (cmd)
-  "Prefix your CMD with the path for opam bin."
-  (concat (opam-bin-path) "/" cmd))
-
-(defun rc/tuareg-hooks ()
-  "The hooks for tuareg."
-  (merlin-mode)
-  (utop-minor-mode)
-  (electric-pair-local-mode))
-
-(use-package merlin
-  :config
-  (setq merlin-completion-with-doc t))
-
-(use-package caml
-  :config
-  (add-hook 'caml-mode-hook 'merlin-mode))
-
-(use-package dune)
-
-(use-package utop
-  :config
-  (setq utop-command "dune utop . -- -emacs"))
-
-(use-package tuareg
-  :config
-  (add-hook 'tuareg-mode-hook 'rc/tuareg-hooks))
-
-(use-package reason-mode)
-
-(use-package ocp-indent)
-
 (use-package web-mode)
+
+(use-package json-mode
+  :config
+  (setq js-indent-level 2))
 
 ;;   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ
 ;;------------------------------------------------------------------------

@@ -74,5 +74,15 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+
+(require 'ansi-color)
+
+(defun rc/colorize-compilation-buffer ()
+  "Colorize your compilation if needed"
+  (when (eq major-mode 'compilation-mode)
+    (ansi-color-apply-on-region compilation-filter-start (point-max))))
+
+(add-hook 'compilation-filter-hook 'rc/colorize-compilation-buffer)
+
 (provide 'rc-defaults)
 ;;; rc-defaults.el ends here
