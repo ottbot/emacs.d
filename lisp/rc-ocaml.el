@@ -5,9 +5,19 @@
 
 (require 'rc-funs)
 
-(defun rc/opam-bin-path ()
-  "Get the path for binaries installed by opam."
-  (rc/shell-command-to-trimmed-string "opam config var bin --safe"))
+(defun rc/opam-env ()
+  "Shell out to get the current opam environment."
+  (car
+   (read-from-string
+    (shell-command-to-string "opam config env --sexp"))))
+
+(defun rc/sync-opam-env ()
+  "Update the environment based on current opam switch.  Inlcudes $PATH."
+  (interactive)
+  (dolist (val (rc/opam-env))
+    (setenv (car val) (cadr val)))
+  (rc/sync-exec-path))
+
 
 (defun rc/opam-lisp-path ()
   "Get the path for opam's share site-lisp dir."
@@ -39,6 +49,7 @@
 
 (defun rc/ocaml-hooks ()
   "The hooks for tuareg."
+  (rc/sync-opam-env)
   (merlin-mode)
   (utop-minor-mode)
   (electric-pair-local-mode)
@@ -48,28 +59,29 @@
 ;;; ======================================================
 ;;; now the setup -- these packages are installed via opam
 
-(rc/add-path (rc/opam-bin-path))
+(rc/sync-opam-env)
 (add-to-list 'load-path (rc/opam-lisp-path))
 
 (use-package merlin
-  :config
-  (setq-default merlin-completion-with-doc t))
+  :custom
+  (merlin-completion-with-doc t))
 
 (use-package dune)
 
 (use-package tuareg
   :mode ("\\.ml[ip]?\\'" . tuareg-mode)
+  :bind ("C-c c" . rc/ocaml-compile)
   :config
   (add-hook 'tuareg-mode-hook 'rc/ocaml-hooks))
 
 (use-package ocamlformat
-  :config
-  (setq-default ocamlformat-enable 'enable-outside-detected-project
-                ocamlformat-show-errors nil))
+  :custom
+  (ocamlformat-enable 'enable-outside-detected-project)
+  (ocamlformat-show-errors nil))
 
 (use-package utop
-  :config
-  (setq-default utop-command "dune utop . -- -emacs"))
+  :custom
+  (utop-command "dune utop . -- -emacs"))
 
 (use-package ocp-indent)
 

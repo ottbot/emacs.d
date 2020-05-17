@@ -3,12 +3,22 @@
 ;;; just some functions
 
 ;;; code:
+
+(defvar is-mac (eq system-type 'darwin))
+
+(defvar default-exec-path exec-path "The value of exec-path from start-up")
+
+(defun rc/sync-exec-path ()
+  "Set emacs exec-path to environment path."
+  (setq exec-path (delete-dups
+                   (append default-exec-path
+                           (split-string (getenv "PATH") ":")))))
+
 (defun rc/add-path (path)
   "Add the PATH to environment variable and the `exec-path`."
   (setenv "PATH" (concat (getenv "PATH") ":" path))
-  (setq exec-path (append exec-path (list path))))
+  (rc/sync-exec-path))
 
-(defvar is-mac (eq system-type 'darwin))
 
 (defun rc/when-mac (x y)
   "Return X if on a Mac, else you get Y."
