@@ -18,12 +18,15 @@
     (setenv (car val) (cadr val)))
   (rc/sync-exec-path))
 
-
 (defun rc/opam-lisp-path ()
   "Get the path for opam's share site-lisp dir."
   (concat
    (rc/shell-command-to-trimmed-string "opam config var share")
    "/emacs/site-lisp"))
+
+(defun rc/current-opam-switch ()
+  (interactive)
+  (print (rc/shell-command-to-trimmed-string "opam config var switch")))
 
 (defun rc/bsb-project-path ()
   "Get the Bucklescript project root dir or nil."
