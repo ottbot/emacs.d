@@ -1,6 +1,6 @@
-;;; rc-ocaml -- summary
+;;; rc-ocaml -- it's for ocaml
 ;;; commentary:
-;;; Use opam for ocaml tooling
+;;; uses opam for package management
 ;;; code:
 
 (require 'rc-funs)
@@ -46,47 +46,60 @@
      (dune (rc/compile-in-dir dune "dune build"))
      (t (call-interactively 'compile)))))
 
+(defun rc/load-tuareg ()
+  "Load the tuareg autoloads."
+  (load (concat (rc/opam-lisp-path) "/tuareg-site-file")))
+
 (defun rc/ocamlformat-before-save ()
   "A named function for the ocamlformat save hook."
   (add-hook 'before-save-hook 'ocamlformat-before-save))
 
-(defun rc/ocaml-hooks ()
+(defun rc/tuareg-mode-hook ()
   "The hooks for tuareg."
   (rc/sync-opam-env)
   (merlin-mode)
   (utop-minor-mode)
   (electric-pair-local-mode)
-  (ocamlformat-before-save))
+  (when (fboundp 'ocamlformat)
+    (rc/ocamlformat-before-save)))
 
 
-;;; ======================================================
-;;; now the setup -- these packages are installed via opam
+(defun rc/tuareg-load-hook ()
+  "Stuff to load after tuareg is initialized."
 
-(rc/sync-opam-env)
-(add-to-list 'load-path (rc/opam-lisp-path))
+  (require 'merlin)
+  (require 'dune)
+  (require 'ocamlformat "ocamlformat" t) ;; don't puke if not there
+  (require 'utop)
+  (require 'ocp-indent)
 
-(use-package merlin
-  :custom
-  (merlin-completion-with-doc t))
+  (setq-default
+   merlin-completion-with-doc t
+   ocamlformat-enable 'enable-outside-detected-project
+   ocamlformat-show-errors nil
+   utop-command "dune utop . -- -emacs")
 
-(use-package dune)
 
-(use-package tuareg
-  :mode ("\\.ml[ip]?\\'" . tuareg-mode)
-  :bind ("C-c c" . rc/ocaml-compile)
-  :config
-  (add-hook 'tuareg-mode-hook 'rc/ocaml-hooks))
+  ;; remap C-c C-c to rc/ocaml-compile
+  )
 
-(use-package ocamlformat
-  :custom
-  (ocamlformat-enable 'enable-outside-detected-project)
-  (ocamlformat-show-errors nil))
 
-(use-package utop
-  :custom
-  (utop-command "dune utop . -- -emacs"))
+(defun rc/tuareg-reload ()
+  "Resync opam env and reload tuareg."
+  (interactive)
 
-(use-package ocp-indent)
+  (rc/sync-opam-env)
+
+  (remove-hook 'tuareg-mode-hook 'rc/tuareg-mode-hook)
+  (remove-hook 'tuareg-load-hook 'rc/tuareg-load-hook)
+  (add-hook 'tuareg-mode-hook 'rc/tuareg-mode-hook)
+  (add-hook 'tuareg-load-hook 'rc/tuareg-load-hook)
+
+  (rc/load-tuareg))
+
+
+(rc/tuareg-reload)
+
 
 (provide 'rc-ocaml)
 ;;; rc-ocaml.el ends here

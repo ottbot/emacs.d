@@ -1,7 +1,9 @@
-;;; rc-defaults -- summary
+;;; rc-defaults -- the settings
 ;;; commentary:
-;;; set up some environment, apprearence, and personal preferences
 ;;; code:
+
+(require 'rc-funs)
+(require 'ansi-color)
 
 (set-frame-font
  (font-spec :family "Source Code Pro" :size 14 :antialias t)
@@ -74,11 +76,8 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-
-(require 'ansi-color)
-
 (defun rc/colorize-compilation-buffer ()
-  "Colorize your compilation if needed"
+  "Colorize your compilation if needed."
   (when (eq major-mode 'compilation-mode)
     (ansi-color-apply-on-region compilation-filter-start (point-max))))
 
