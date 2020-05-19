@@ -79,9 +79,7 @@
    ocamlformat-show-errors nil
    utop-command "dune utop . -- -emacs")
 
-
-  ;; remap C-c C-c to rc/ocaml-compile
-  )
+  (substitute-key-definition 'compile 'rc/ocaml-compile tuareg-mode-map))
 
 
 (defun rc/tuareg-reload ()
