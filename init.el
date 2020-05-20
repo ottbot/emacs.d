@@ -6,6 +6,7 @@
 (require 'rc-package)
 (require 'rc-funs)
 (require 'rc-defaults)
+(require 'rc-eshell)
 
 (require 'rc-common)
 (require 'rc-lisps)
