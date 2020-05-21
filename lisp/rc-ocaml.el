@@ -50,6 +50,17 @@
   "Load the tuareg autoloads."
   (load (concat (rc/opam-lisp-path) "/tuareg-site-file")))
 
+(defun rc/ocaml-compile-when-auto ()
+  "Only compile when rc/auto-ocaml-compile-mode is enabled."
+  (when rc/auto-ocaml-compile-mode
+    (rc/ocaml-compile)))
+
+(define-minor-mode rc/auto-ocaml-compile-mode
+  "A minor mode to call rc/ocaml-compile on save."
+  :init-value nil
+  :lighter "-auto"
+  (add-hook 'after-save-hook 'rc/ocaml-compile-when-auto t t))
+
 (defun rc/ocamlformat-before-save ()
   "A named function for the ocamlformat save hook."
   (add-hook 'before-save-hook 'ocamlformat-before-save))
