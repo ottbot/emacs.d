@@ -3,6 +3,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
+(require 'auto-compile-mode)
+
 (require 'rc-package)
 (require 'rc-funs)
 (require 'rc-defaults)

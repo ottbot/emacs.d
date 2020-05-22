@@ -50,36 +50,6 @@
   "Load the tuareg autoloads."
   (load (concat (rc/opam-lisp-path) "/tuareg-site-file")))
 
-
-(defun rc/clean-compile-p (MSG)
-  "True if MSG suggests to compilation is clean."
-  (string= MSG "finished\n"))
-
-(defvar rc/auto-compile-started nil
-  "Tracks if an compilation was initiated by auto comp minor mode.")
-
-(defun rc/close-if-clean-compile (BUF MSG)
-  "Close the compilation window BUF based on MSG."
-  (when (and rc/auto-compile-started
-             (rc/clean-compile-p MSG))
-    (setq rc/auto-compile-started nil)
-    (bury-buffer BUF)
-    (delete-window (get-buffer-window BUF))))
-
-(defun rc/ocaml-compile-when-auto ()
-  "Only compile when rc/auto-ocaml-compile-mode is enabled."
-  (when rc/auto-ocaml-compile-mode
-    (setq rc/auto-compile-started t)
-    (rc/ocaml-compile)))
-
-(define-minor-mode rc/auto-ocaml-compile-mode
-  "A minor mode to call rc/ocaml-compile on save."
-  :init-value nil
-  :lighter " ♻"
-  (setq-local compilation-always-kill t)
-  (add-hook 'compilation-finish-functions 'rc/close-if-clean-compile t t)
-  (add-hook 'after-save-hook 'rc/ocaml-compile-when-auto t t))
-
 (defun rc/ocamlformat-before-save ()
   "A named function for the ocamlformat save hook."
   (add-hook 'before-save-hook 'ocamlformat-before-save))
@@ -88,6 +58,7 @@
   "The hooks for tuareg."
   (rc/sync-opam-env)
   (merlin-mode)
+  (setq-local auto-compile-command 'rc/ocaml-compile)
   (utop-minor-mode)
   (electric-pair-local-mode)
   (when (fboundp 'ocamlformat)
