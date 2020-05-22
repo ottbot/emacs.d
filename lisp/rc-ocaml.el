@@ -94,6 +94,9 @@
   (add-hook 'tuareg-mode-hook 'rc/tuareg-mode-hook)
   (add-hook 'tuareg-load-hook 'rc/tuareg-load-hook)
 
+  (diminish 'utop-minor-mode)
+  (diminish 'merlin-mode "merlin")
+
   (rc/load-tuareg))
 
 

@@ -19,5 +19,11 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq use-package-always-ensure t)
+
+(use-package use-package-chords
+  :config (key-chord-mode 1))
+
+
 (provide 'rc-package)
 ;;; rc-package.el ends here

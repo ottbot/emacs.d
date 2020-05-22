@@ -4,35 +4,28 @@
 
 (require 'rc-funs)
 
-(use-package undo-tree
-  :ensure t)
+(use-package undo-tree)
 
-(use-package diminish
-  :ensure t)
+(use-package diminish)
 
-(use-package bind-key
-  :ensure t)
+(use-package bind-key)
 
 (use-package spacemacs-theme
-  :ensure t
   :defer t
   :init
   (rc/init-theme-ring '(spacemacs-light spacemacs-dark)))
 
 (use-package ace-window
-  :ensure t
   :bind ("C-x o" . ace-window))
 
 (use-package avy
-  :ensure t
-  :bind (("C-:" . avy-goto-char-2)
-         ("C-'" . avy-goto-char)))
+  :chords (("jj" . avy-goto-char)
+           ("jk" . avy-goto-char-2)
+           ("jl" . avy-goto-line)))
 
-(use-package counsel
-  :ensure t)
+(use-package counsel)
 
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
   :custom
   (ivy-use-virtual-buffers t)
@@ -44,38 +37,33 @@
   (ivy-mode 1))
 
 (use-package crux
-  :ensure t
   :config
   (global-set-key [remap move-beginning-of-line] #'crux-move-beginning-of-line))
 
 (use-package company
-  :ensure t
-  :bind ("<C-tab>" . company-complete)
-  :config
-  (global-company-mode))
+  :diminish company-mode
+  :chords ("[tab][tab]" . company-complete)
+  :config (global-company-mode))
 
 (use-package company-quickhelp
   :ensure t)
 
 (use-package unkillable-scratch
-  :ensure t
   :commands unkillable-scratch-buffer
   :custom
   (unkillable-scratch-behaviour 'bury))
 
 (use-package flycheck
-  :ensure t
+  :diminish flycheck-mode
   :config
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (global-flycheck-mode))
 
 (use-package magit
-  :ensure t
   :config
   (bind-key "C-x g" 'magit))
 
-(use-package electric
-  :ensure t)
+(use-package electric)
 
 (provide 'rc-common)
 ;;; rc-common.el ends here
