@@ -11,5 +11,10 @@
 	      ("C-j" . 'eval-last-sexp))
   :hook ((emacs-lisp-mode clojure-mode dune-mode) . enable-paredit-mode))
 
+(use-package clojure-mode)
+
+(use-package inf-clojure
+  :hook (clojure-mode . inf-clojure-minor-mode))
+
 (provide 'rc-lisps)
 ;;; rc-lisps.el ends here

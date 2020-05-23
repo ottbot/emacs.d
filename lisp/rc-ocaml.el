@@ -58,6 +58,7 @@
   "The hooks for tuareg."
   (rc/sync-opam-env)
   (merlin-mode)
+  (setq mode-name "🐪")
   (setq-local auto-compile-command 'rc/ocaml-compile)
   (utop-minor-mode)
   (electric-pair-local-mode)
@@ -95,7 +96,7 @@
   (add-hook 'tuareg-load-hook 'rc/tuareg-load-hook)
 
   (diminish 'utop-minor-mode)
-  (diminish 'merlin-mode "merlin")
+  (diminish 'merlin-mode "🧙‍")
 
   (rc/load-tuareg))
 

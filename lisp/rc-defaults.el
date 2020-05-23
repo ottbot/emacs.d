@@ -9,6 +9,8 @@
  (font-spec :family "Source Code Pro" :size 14 :antialias t)
  t t)
 
+(rc/set-emoji-font nil)
+
 (setq custom-file (make-temp-file "emacs-custom.el"))
 
 (rc/add-path "/usr/local/bin")

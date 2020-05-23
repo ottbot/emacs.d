@@ -11,12 +11,11 @@
       (cd DIR)
       (async-shell-command "simple-server" buff))))
 
-(use-package web-mode
-  :ensure t)
+(use-package web-mode)
 
 (use-package json-mode
-  :ensure t
-  :customize js-indent-level 2)
+  :config
+  (setq js-indent-level 2))
 
-(provide 'rc-lisps)
+(provide 'rc-web)
 ;;; rc-web.el ends here

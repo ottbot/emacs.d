@@ -45,8 +45,7 @@
   :chords ("[tab][tab]" . company-complete)
   :config (global-company-mode))
 
-(use-package company-quickhelp
-  :ensure t)
+(use-package company-quickhelp)
 
 (use-package unkillable-scratch
   :commands unkillable-scratch-buffer

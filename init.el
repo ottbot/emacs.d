@@ -14,6 +14,7 @@
 (require 'rc-lisps)
 (require 'rc-ocaml)
 (require 'rc-python)
+(require 'rc-web)
 
 
 ;;   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ   ᕦ(òᴥó)ᕥ

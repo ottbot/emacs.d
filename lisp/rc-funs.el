@@ -4,7 +4,7 @@
 
 (defvar is-mac (eq system-type 'darwin))
 
-(defvar default-exec-path exec-path "The value of exec-path from start-up")
+(defvar default-exec-path exec-path "The value of 'exec-path' from start-up.")
 
 (defun rc/sync-exec-path ()
   "Set emacs 'exec-path' to environment path."
@@ -13,6 +13,11 @@
                            (split-string (getenv "PATH") ":")))))
 
 
+(defun rc/set-emoji-font (FRAME)
+  "Enables emoji fonts for FRAME. Can be used with 'after-make-frame-functions' hook."
+  (if is-mac
+      (set-fontset-font t 'symbol (font-spec :family "Apple Color Emoji") FRAME 'prepend)
+    (set-fontset-font t 'symbol (font-spec :family "Symbola") FRAME 'prepend)))
 
 (defvar rc/theme-ring '() "A list of themes to toggle through.")
 
@@ -22,7 +27,6 @@
   (when rc/theme-ring
     (load-theme (car rc/theme-ring) t)
     (add-to-list 'rc/theme-ring (pop rc/theme-ring) t)))
-
 
 (defun rc/init-theme-ring (THEMES)
   "Set the theme ring using THEMES, activating the first one."
