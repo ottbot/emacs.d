@@ -1,4 +1,4 @@
-;;; rc-eshell - welp, eshell
+;;; rc-eshell.el --- welp, eshell
 ;;; commentary:
 ;;; code:
 

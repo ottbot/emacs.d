@@ -17,5 +17,22 @@
   :config
   (setq js-indent-level 2))
 
+
+(use-package css-mode
+  :config
+  (add-to-list 'company-backends 'company-css))
+
+
+(defun rc/elm-hooks ()
+  "Just some hooks for elm."
+  (elm-format-on-save-mode)
+  (lsp))
+
+(use-package elm-mode
+  :config
+  (setq elm-indent-offset 2)
+  (add-hook 'elm-mode-hook 'rc/elm-hooks))
+
+
 (provide 'rc-web)
 ;;; rc-web.el ends here

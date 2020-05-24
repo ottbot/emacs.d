@@ -64,5 +64,16 @@
 
 (use-package electric)
 
+
+(use-package lsp-mode
+  :commands lsp)
+
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+
 (provide 'rc-common)
 ;;; rc-common.el ends here
