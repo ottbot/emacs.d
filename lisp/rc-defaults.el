@@ -9,13 +9,17 @@
  (font-spec :family "Source Code Pro" :size 14 :antialias t)
  t t)
 
+
 (rc/set-emoji-font nil)
 
 (setq custom-file (make-temp-file "emacs-custom.el"))
 
 (rc/add-path "/usr/local/bin")
 
-(global-display-line-numbers-mode)
+(add-hook 'kill-emacs-query-functions
+          'custom-prompt-customize-unsaved-options)
+
+
 
 (display-battery-mode)
 (display-time-mode 1)
@@ -31,9 +35,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq-default truncate-lines t)
 
 (set-default 'indent-tabs-mode nil)
 (set-default 'indicate-empty-lines t)
