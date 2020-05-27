@@ -62,6 +62,10 @@
   (setq-local auto-compile-command 'rc/ocaml-compile)
   (utop-minor-mode)
   (electric-pair-local-mode)
+
+  (when (rc/dune-project-path)
+    (setq-local utop-command "dune utop . -- -emacs"))
+
   (when (fboundp 'ocamlformat)
     (rc/ocamlformat-before-save)))
 
@@ -78,8 +82,7 @@
   (setq-default
    merlin-completion-with-doc t
    ocamlformat-enable 'enable-outside-detected-project
-   ocamlformat-show-errors nil
-   utop-command "dune utop . -- -emacs")
+   ocamlformat-show-errors nil)
 
   (substitute-key-definition 'compile 'rc/ocaml-compile tuareg-mode-map))
 
