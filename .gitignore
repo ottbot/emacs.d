@@ -23,4 +23,5 @@ recentf
 /network-security.data
 elpa/
 .last-package-update-day
+emacs-custom*
 /.lsp-session*
