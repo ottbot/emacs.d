@@ -35,9 +35,9 @@
   version-control t
   delete-old-versions t
   kept-new-versions 20
-  kept-old-versions 5
-  )
+  kept-old-versions 5)
 
+(recentf-mode 1)
 ;; visual
 
 (menu-bar-mode -1)
@@ -65,10 +65,6 @@
   (doom-themes-visual-bell-config))
 
 (use-package diminish)
-
-
-
-
 
 (use-package smartparens
   :ensure t
@@ -157,7 +153,17 @@
 (use-package parinfer-rust-mode
   :hook emacs-lisp-mode
   :init
-  (setq parinfer-rust-library "~/.emacs.d/parinfer-rust/parinfer-rust-arm64.so"))
+  (setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
+
+
+
+(use-package projectile)
 
 (use-package eglot)
 (use-package fsharp-mode)
+
+(use-package rust-mode)
+
+(require 'eglot-fs)
+
+(use-package ein)
