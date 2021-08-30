@@ -59,6 +59,9 @@
 
 (setq-default indent-tabs-mode nil)
 
+
+(use-package unkillable-scratch)
+
 (use-package doom-themes
   :config
   (load-theme 'doom-one-light t)
@@ -110,6 +113,9 @@
   :config
   (add-hook 'after-init-hook #'global-company-mode))
 
+(use-package ivy-mode
+  :config
+  (ivy-mode 1))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)))
@@ -122,8 +128,8 @@
 
 
 (use-package ivy-hydra)
-
-(use-package major-mode-hydra
+(use-package swiper)
+(usqe-package major-mode-hydra
   :bind
   ("C-M-SPC" . major-mode-hydra)
   :config
