@@ -26,8 +26,8 @@
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
-;; don't persist customizations
-(setq custom-file (make-temp-file "tmp-emacs-custom"))
+;; don't persist customizations here
+(setq custom-file "~/.emacs.d/custom.el")
 
 ;; backups
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
