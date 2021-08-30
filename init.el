@@ -162,14 +162,8 @@
   (setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
 
 
-
 (use-package projectile)
 
-(use-package eglot)
-(use-package fsharp-mode)
-
 (use-package rust-mode)
-
-(require 'eglot-fs)
 
 (use-package ein)
