@@ -59,6 +59,7 @@
 
 (setq-default indent-tabs-mode nil)
 
+(use-package vterm)
 
 (use-package unkillable-scratch)
 
