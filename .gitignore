@@ -7,3 +7,4 @@ parinfer-rust
 recentf
 request/
 custom.el
+/opam-user-setup.el
