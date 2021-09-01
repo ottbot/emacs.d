@@ -59,6 +59,14 @@
 
 (setq-default indent-tabs-mode nil)
 
+
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+(require 'dune)
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+
+
 (use-package vterm)
 
 (use-package unkillable-scratch)
@@ -161,18 +169,12 @@
   :bind ("C-x g" . magit-status))
 
 (use-package parinfer-rust-mode
-  :hook emacs-lisp-mode
+  :hook ((dune-mode emacs-lisp-mode) . parinfer-rust-mode)
   :init
   (setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
-
 
 (use-package projectile)
 
 (use-package rust-mode)
 
 (use-package ein)
-
-
-;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line
