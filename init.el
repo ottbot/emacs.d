@@ -63,7 +63,7 @@
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 
-(fset 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode)
 
 (use-package vterm)
@@ -171,8 +171,6 @@
   :hook ((dune-mode emacs-lisp-mode) . parinfer-rust-mode)
   :init
   (setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
-
-(use-package projectile)
 
 (use-package rust-mode)
 
