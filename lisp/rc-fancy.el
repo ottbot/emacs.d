@@ -1,0 +1,80 @@
+(require 'rc-base)
+
+(rc/sup 'fzf)
+
+(progn
+  (rc/sup 'magit)
+  (rc/global-key '("C-x g" . magit-status)))
+
+(progn
+ (rc/sup 'smartparens)
+ (require 'smartparens-config)
+ (smartparens-global-mode 1)
+ (show-paren-mode t))
+
+(rc/sup 'vterm)
+(rc/sup 'unkillable-scratch)
+(rc/sup 'emojify)
+
+(progn
+  (rc/sup 'doom-themes)
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config))
+
+
+(progn
+  (rc/sup 'diminish)
+  (diminish 'smartparens-mode))
+
+(progn
+ (rc/sup 'expand-region)
+ (global-set-key (kbd "M-m") 'er/expand-region))
+
+(progn
+  (rc/sup 'feebleline)
+  (feebleline-mode 't))
+
+(progn
+  (rc/sup 'avy)
+  (rc/global-key '("C-=" . avy-goto-char))
+  (setq avy-background t))
+
+
+(progn
+  (dolist (pkg (list 'ivy 'counsel 'swiper 'ivy-hydra 'ivy-prescient))
+    (rc/sup pkg))
+  (ivy-mode 1)
+  (ivy-prescient-mode t)
+  (rc/global-key '("M-x" . counsel-M-x)))
+
+
+(progn
+  (rc/sup 'company)
+  (add-hook 'after-init-hook #'global-company-mode))
+
+
+(progn
+  (rc/sup 'parinfer-rust-mode)
+
+  (dolist (h (list 'emacs-list-mode-hook 'dune-mode-hook))
+    (add-hook h 'parinfer-rust-mode))
+
+  (setq parinfer-rust-library
+        "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
+
+(progn
+  (rc/sup 'projectile)
+  (rc/sup 'counsel-projectile)
+  (require 'projectile)
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
+
+
+(progn
+  (rc/sup 'which-key)
+  (add-hook 'after-init-hook 'which-key-mode))
+
+(progn
+  (rc/sup 'ace-window)
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+(provide 'rc-fancy)
