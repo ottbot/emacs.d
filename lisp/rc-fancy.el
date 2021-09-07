@@ -18,9 +18,9 @@
 
 (progn
   (rc/sup 'doom-themes)
-  (load-theme 'doom-one t)
+  (rc/sup 'solaire-mode)
+  (solaire-global-mode +1)
   (doom-themes-visual-bell-config))
-
 
 (progn
   (rc/sup 'diminish)
@@ -52,15 +52,6 @@
   (rc/sup 'company)
   (add-hook 'after-init-hook #'global-company-mode))
 
-
-(progn
-  (rc/sup 'parinfer-rust-mode)
-
-  (dolist (h (list 'emacs-list-mode-hook 'dune-mode-hook))
-    (add-hook h 'parinfer-rust-mode))
-
-  (setq parinfer-rust-library
-        "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
 
 (progn
   (rc/sup 'projectile)
