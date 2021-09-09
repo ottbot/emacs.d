@@ -28,7 +28,7 @@
 
 (progn
  (rc/sup 'expand-region)
- (global-set-key (kbd "M-m") 'er/expand-region))
+ (rc/global-key '("M-m" . er/expand-region)))
 
 (progn
   (rc/sup 'feebleline)
@@ -66,6 +66,7 @@
 
 (progn
   (rc/sup 'ace-window)
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (rc/global-key '("C-x o" . ace-window)))
 
 (provide 'rc-fancy)

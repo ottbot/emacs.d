@@ -4,6 +4,9 @@
 (defun rc/global-key (kpair)
   (global-set-key (kbd (car kpair)) (cdr kpair)))
 
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
+
 ;; don't persist customizations here
 (setq custom-file "~/.emacs.d/custom.el")
 
