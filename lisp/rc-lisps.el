@@ -1,20 +1,12 @@
-;;; rc-lisps.el --- things for lisps, like paredit
-;;; Commentary:
-;;; Code:
+(defun rc/add-parinfer (hook)
+  (add-hook hook 'parinfer-rust-mode))
 
-(use-package paredit
-  :ensure t
-  :diminish paredit-mode
-  :bind (:map paredit-mode-map
-	      ("C-c <right>" . paredit-forward-slurp-sexp)
-	      ("C-c <left>" . paredit-forward-barf-sexp)
-	      ("C-j" . 'eval-last-sexp))
-  :hook ((emacs-lisp-mode clojure-mode dune-mode) . enable-paredit-mode))
+(progn
+  (rc/sup 'parinfer-rust-mode)
 
-(use-package clojure-mode)
+  (rc/add-parinfer 'emacs-lisp-mode-hook)
 
-(use-package inf-clojure
-  :hook (clojure-mode . inf-clojure-minor-mode))
+  (setq parinfer-rust-library
+        "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib"))
 
 (provide 'rc-lisps)
-;;; rc-lisps.el ends here
