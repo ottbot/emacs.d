@@ -1,10 +1,10 @@
 (when (require 'dune nil 'noerror)
   (rc/add-parinfer 'dune-mode-hook))
 
-(defun rc/eglot-hook ()
-  (eglot-ensure)
-  (add-hook 'before-save-hook 'eglot-format-buffer nil t))
+(defun rc/tuareg-mode-hook ()
+  (setq lsp-diagnostics-provider :none)
+  (lsp-deferred))
 
-(add-hook 'tuareg-mode-hook 'rc/eglot-hook)
+(add-hook 'tuareg-mode-hook 'rc/tuareg-mode-hook)
 
 (provide 'rc-ocaml)

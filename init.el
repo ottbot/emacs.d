@@ -11,9 +11,11 @@
 
 (load-theme 'doom-city-lights t)
 
+(require 'rc-lsp)
+
+
 (require 'rc-lisps)
 
-(rc/sup 'eglot)
 (rc/sup 'rust-mode)
 (rc/sup 'ein)
 

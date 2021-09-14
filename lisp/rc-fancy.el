@@ -20,7 +20,14 @@
   (rc/sup 'doom-themes)
   (rc/sup 'solaire-mode)
   (solaire-global-mode +1)
-  (doom-themes-visual-bell-config))
+
+ (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+       doom-themes-enable-italic t) ; if nil, italics is universally disabled
+
+ (doom-themes-visual-bell-config)
+ (doom-themes-org-config)
+
+ (doom-themes-visual-bell-config))
 
 (progn
   (rc/sup 'diminish)
@@ -54,13 +61,6 @@
 
 
 (progn
-  (rc/sup 'projectile)
-  (rc/sup 'counsel-projectile)
-  (require 'projectile)
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
-
-
-(progn
   (rc/sup 'which-key)
   (add-hook 'after-init-hook 'which-key-mode))
 
@@ -68,5 +68,8 @@
   (rc/sup 'ace-window)
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (rc/global-key '("C-x o" . ace-window)))
+
+
+
 
 (provide 'rc-fancy)

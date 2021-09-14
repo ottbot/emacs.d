@@ -11,3 +11,5 @@ custom.el
 /projectile-bookmarks.eld
 /projects
 /url/
+.cache/
+.lsp-session-v1
