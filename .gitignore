@@ -13,3 +13,4 @@ custom.el
 /url/
 .cache/
 .lsp-session-v1
+/tramp

@@ -23,3 +23,17 @@
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 (require 'rc-ocaml)
+
+
+(defun rc/vterm-is-active ()
+  (string-equal "*vterm*" (buffer-name)))
+
+(defun rc/toggle-vterm ()
+  (interactive)
+  (if (rc/vterm-is-active)
+    (bury-buffer)
+    (vterm)))
+
+(rc/global-key '("s-w" . bury-buffer))
+
+(rc/global-key '("s-t" . rc/toggle-vterm))
