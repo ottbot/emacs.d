@@ -66,7 +66,6 @@
 
 (progn
   (rc/sup 'ace-window)
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (rc/global-key '("C-x o" . ace-window)))
 
 
