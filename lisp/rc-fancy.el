@@ -29,6 +29,21 @@
 
  (doom-themes-visual-bell-config))
 
+(setq-default rc/dark-theme 'doom-one
+              rc/light-theme 'doom-one-light)
+
+(defun rc/apply-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme rc/light-theme t))
+    ('dark (load-theme rc/dark-theme t))))
+
+(defun rc/set-current-theme ()
+  (rc/apply-theme ns-system-appearance))
+
+(add-hook 'ns-system-appearance-change-functions #'rc/apply-theme)
+
 (progn
   (rc/sup 'diminish)
   (diminish 'smartparens-mode))

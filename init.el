@@ -7,13 +7,14 @@
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
+(setq rc/dark-theme 'doom-one
+      rc/light-theme 'doom-one-light)
+
 (set-frame-font "Dank Mono 15" nil t)
 
-(load-theme 'doom-city-lights t)
+(rc/set-current-theme)
 
 (require 'rc-lsp)
-
-
 (require 'rc-lisps)
 
 (rc/sup 'rust-mode)

@@ -5,6 +5,6 @@
   (setq lsp-diagnostics-provider :none)
   (lsp-deferred))
 
-(add-hook 'tuareg-mode-hook 'rc/tuareg-mode-hook)
+(add-hook 'tuareg-mode-hook #'rc/tuareg-mode-hook)
 
 (provide 'rc-ocaml)
