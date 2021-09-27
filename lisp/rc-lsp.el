@@ -9,6 +9,7 @@
       lsp-ui-doc-show-with-cursor nil
       lsp-ui-doc-show-with-mouse nil
       lsp-headerline-breadcrumb-enable nil
+      lsp-enable-snippet nil
       lsp-lens-enable nil
       lsp-eldoc-enable-hover nil
       lsp-modeline-code-actions-enable nil

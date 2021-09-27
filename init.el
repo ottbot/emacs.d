@@ -38,5 +38,3 @@
 (rc/global-key '("s-w" . bury-buffer))
 
 (rc/global-key '("s-t" . rc/toggle-vterm))
-
-(rc/sup 'yasnippet)
