@@ -7,7 +7,7 @@
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
-(setq rc/dark-theme 'doom-one
+(setq rc/dark-theme 'doom-city-lights
       rc/light-theme 'doom-one-light)
 
 (set-frame-font "Dank Mono 15" nil t)
@@ -38,3 +38,5 @@
 (rc/global-key '("s-w" . bury-buffer))
 
 (rc/global-key '("s-t" . rc/toggle-vterm))
+
+(rc/sup 'yasnippet)
