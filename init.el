@@ -14,6 +14,8 @@
 
 (rc/set-current-theme)
 
+(server-start)
+
 (require 'rc-lsp)
 (require 'rc-lisps)
 
