@@ -7,12 +7,14 @@
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
-(setq rc/dark-theme 'doom-city-lights
-      rc/light-theme 'doom-one-light)
 
-(set-frame-font "Dank Mono 15" nil t)
+(rc/sup '(nano-theme :type git :host github
+                     :repo "rougier/nano-theme"))
+(require 'nano-theme)
+(nano-dark)
+(nano-setup)
 
-(rc/set-current-theme)
+(set-frame-font "Roboto Mono" nil t)
 
 (server-start)
 
@@ -26,7 +28,6 @@
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 (require 'rc-ocaml)
-
 
 (defun rc/vterm-is-active ()
   (string-equal "*vterm*" (buffer-name)))

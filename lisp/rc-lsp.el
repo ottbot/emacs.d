@@ -25,8 +25,6 @@
  (rc/sup 'treemacs)
  (rc/sup 'all-the-icons)
  (rc/sup 'lsp-treemacs)
- (lsp-treemacs-sync-mode 1)
- (setq doom-themes-treemacs-theme "doom-colors")
- (doom-themes-treemacs-config))
+ (lsp-treemacs-sync-mode 1))
 
 (provide 'rc-lsp)

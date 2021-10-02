@@ -1,6 +1,5 @@
 (defalias 'rc/sup 'straight-use-package "RC's Straight Use Package")
 
-
 (defun rc/global-key (kpair)
   (global-set-key (kbd (car kpair)) (cdr kpair)))
 
