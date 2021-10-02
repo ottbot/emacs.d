@@ -3,18 +3,11 @@
 
 (require 'rc-base)
 (require 'rc-fancy)
+(require 'rc-nano)
 
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
-
-(rc/sup '(nano-theme :type git :host github
-                     :repo "rougier/nano-theme"))
-(require 'nano-theme)
-(nano-dark)
-(nano-setup)
-
-(set-frame-font "Roboto Mono" nil t)
 
 
 (require 'rc-lsp)
