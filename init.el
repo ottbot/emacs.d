@@ -16,7 +16,6 @@
 
 (set-frame-font "Roboto Mono" nil t)
 
-(server-start)
 
 (require 'rc-lsp)
 (require 'rc-lisps)
