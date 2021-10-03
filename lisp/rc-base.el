@@ -38,6 +38,8 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
+(setq ring-bell-function 'ignore)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 

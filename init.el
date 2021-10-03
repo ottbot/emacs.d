@@ -10,11 +10,10 @@
 
 (rc/sup '(nano-theme :type git :host github
                      :repo "rougier/nano-theme"))
-(require 'nano-theme)
-(nano-dark)
-(nano-setup)
 
-(set-frame-font "Roboto Mono" nil t)
+(require 'nano-theme)
+
+(nano-dark)
 
 
 (require 'rc-lsp)
