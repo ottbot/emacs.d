@@ -7,7 +7,7 @@
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
-(rc/the-look "JetBrains Mono-13")
+(rc/the-look)
 
 (require 'rc-lsp)
 (require 'rc-lisps)

@@ -36,11 +36,11 @@
 
 (add-hook 'ns-system-appearance-change-functions #'rc/apply-system-appearence)
 
-
-(defun rc/the-look (font)
+(defun rc/the-look ()
+  (interactive)
   (solaire-global-mode 't)
   (feebleline-mode 't)
-  (rc/apply-system-appearance ns-system-appearance)
-  (set-frame-font font))
+  (rc/apply-system-appearance ns-system-appearance))
+
 
 (provide 'rc-look)
