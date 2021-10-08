@@ -1,5 +1,3 @@
-;; maybe she's born with it, maybe it's emacs?
-
 (require 'rc-base)
 
 (rc/sup 'feebleline)
@@ -36,8 +34,9 @@
 
 (add-hook 'ns-system-appearance-change-functions #'rc/apply-system-appearence)
 
-(defun rc/the-look ()
+(defun rc/look (font)
   (interactive)
+  (set-frame-font font)
   (solaire-global-mode 't)
   (feebleline-mode 't)
   (rc/apply-system-appearance ns-system-appearance))

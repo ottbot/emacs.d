@@ -37,19 +37,6 @@
 (rc/sup 'unkillable-scratch)
 
 
-(defun rc/vterm-is-active ()
-  (string-equal "*vterm*" (buffer-name)))
-
-(defun rc/toggle-vterm ()
-  (interactive)
-  (if (rc/vterm-is-active)
-    (bury-buffer)
-    (vterm)))
-
-(rc/global-key '("s-w" . bury-buffer))
-(rc/global-key '("s-t" . rc/toggle-vterm))
-
-
 (progn
   (straight-use-package 'crux)
 
@@ -104,5 +91,19 @@
   (rc/sup 'ace-window)
   (rc/global-key '("C-x o" . ace-window)))
 
+(defun rc/vterm-is-active ()
+  (string-equal "*vterm*" (buffer-name)))
+
+(defun rc/toggle-vterm ()
+  (interactive)
+  (if (rc/vterm-is-active)
+    (bury-buffer)
+    (vterm)))
+
+(progn
+  (setq winner-dont-bind-my-keys t)
+  (winner-mode t)
+  (rc/global-key '("s-w" . winner-undo))
+  (rc/global-key '("s-t" . rc/toggle-vterm)))
 
 (provide 'rc-base)

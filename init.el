@@ -7,7 +7,7 @@
 (setq user-full-name "Robert Crim"
       user-mail-address "rob@servermilk.com")
 
-(rc/the-look)
+(rc/look "JetBrains Mono Light-14")
 
 (require 'rc-lsp)
 (require 'rc-lisps)
@@ -20,3 +20,5 @@
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 
 (require 'rc-ocaml)
+
+(rc/sup 'writeroom-mode)
