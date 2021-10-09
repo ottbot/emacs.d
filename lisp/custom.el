@@ -14,8 +14,7 @@
       (ns-appearance . light)
       (ns-transparent-titlebar . t)
       (background-mode . light)
-      (background-color . "#FFFFFF")
-      (vertical-scroll-bars)))
+      (background-color . "#FFFFFF")))
  '(delete-old-versions t)
  '(emacs-lisp-mode-hook '(parinfer-rust-mode))
  '(feebleline-mode t nil (feebleline))
@@ -56,3 +55,9 @@
  '(truncate-partial-width-windows t)
  '(winner-dont-bind-my-keys t)
  '(winner-mode t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
