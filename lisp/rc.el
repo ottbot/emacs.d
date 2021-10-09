@@ -1,31 +1,33 @@
-(progn
-  (straight-use-package 'dash)
-  (global-dash-fontify-mode t)
-  (with-eval-after-load 'info-look
-    (dash-register-info-lookup)))
+(setq custom-file "~/.emacs.d/lisp/custom.el")
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(straight-use-package 'dash)
+
+(require 'dash)
+
+(with-eval-after-load 'info-look
+  (dash-register-info-lookup))
+
+(defun rc/load-custom ()
+  (load custom-file))
 
 (defun rc/global-key (key cmd)
   (global-set-key (kbd key) cmd))
-
 
 (defun rc/each-pair (lst fn)
   (-each (-partition 2 lst)
     (-applify fn)))
 
-
 (defun rc/global-keys (keycmds)
   (rc/each-pair keycmds 'rc/global-key))
-
 
 (defun rc/bind-key (mode-map key cmd)
   (define-key mode-map (kbd key) cmd))
 
-
 (defun rc/key-binder (mode-map)
   #'(lambda (key cmd)
      (rc/bind-key mode-map key cmd)))
-
 
 (defun rc/bind-keys (mode-map keycmds)
   (rc/each-pair keycmds (rc/key-binder mode-map)))
@@ -64,39 +66,5 @@
 
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
-
-;; don't persist customizations in init.el, innit
-(setq custom-file "~/.emacs.d/custom.el")
-(load-file custom-file)
-
-;; backups
-(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
-      backup-by-copying t
-      version-control t
-      delete-old-versions t
-      kept-new-versions 20
-      kept-old-versions 5)
-
-(setq-default indent-tabs-mode nil)
-
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(global-auto-revert-mode)
-(recentf-mode 1)
-
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
-
-(setq ring-bell-function 'ignore)
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-(setq truncate-partial-width-windows 't)
-
-(progn
-  (setq winner-dont-bind-my-keys t)
-  (winner-mode t)
-  (rc/global-key "s-w" 'winner-undo))
 
 (provide 'rc)
