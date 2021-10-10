@@ -29,7 +29,6 @@
   (-lambda ((pkg kb))
     (rc/sup pkg :bind-global kb)))
 
-
 (-each
     '(feebleline
       diminish
@@ -39,18 +38,16 @@
 
 (require 'nano-theme)
 
-(rc/apply-system-appearance ns-system-appearance)
+(rc/set-appearance)
 
 (rc/global-key "s-w" 'winner-undo)
 
 (add-hook 'after-init-hook 'which-key-mode)
 (add-hook 'after-init-hook 'global-company-mode)
 
-
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
-
 
 (progn
   (-each '(lsp-mode
@@ -58,7 +55,6 @@
            lsp-ui
            lsp-treemacs)
          'rc/sup))
-
 
 (rc/sup 'rust-mode)
 (rc/sup 'ein)
@@ -69,7 +65,8 @@
   (setq lsp-diagnostics-provider :none)
   (lsp-deferred))
 
-(add-hook 'tuareg-mode-hook 'rc/tuareg-mode-hook)
+(add-hook 'tuareg-mode-hook
+          'rc/tuareg-mode-hook)
 
 (when (require 'utop nil 'noerror)
   (rc/bind-keys
@@ -77,10 +74,10 @@
    '("C-p" utop-history-goto-prev
      "C-n" utop-history-goto-next)))
 
-
-(-each '(dune-mode-hook emacs-lisp-mode-hook)
-  (lambda (hook)
-    (add-hook hook 'parinfer-rust-mode)))
-
+(-each '(dune-mode-hook
+         emacs-lisp-mode-hook)
+  (lambda (some-hook)
+    (add-hook some-hook
+              'parinfer-rust-mode)))
 
 (rc/load-custom)

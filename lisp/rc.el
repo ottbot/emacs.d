@@ -51,18 +51,24 @@
     (bury-buffer)
     (vterm)))
 
-
-(defun rc/apply-system-appearance (appearance)
+(defun rc/set-appearance (&optional appearance)
   "Set up themes, etc, as system appearance changes from 'light to 'dark"
-  (setq frame-background-mode appearance)
-  (mapc #'disable-theme custom-enabled-themes)
-  (mapc #'frame-set-background-mode (frame-list))
-  (pcase appearance
-    ('light (nano-light))
-    ('dark (nano-dark))))
+  (if appearance
+      (progn
+        (setq frame-background-mode appearance)
+
+        (mapc #'disable-theme custom-enabled-themes)
+        (mapc #'frame-set-background-mode (frame-list))
+
+        (pcase appearance
+          ('light (nano-light))
+          ('dark (nano-dark))))
+
+    (rc/set-appearance ns-system-appearance)))
+
 
 (add-hook 'ns-system-appearance-change-functions
-          'rc/apply-system-appearence)
+          'rc/set-appearance)
 
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
