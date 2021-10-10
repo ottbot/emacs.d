@@ -13,13 +13,13 @@
     '((bottom-divider-width . 1)
       (ns-appearance . light)
       (ns-transparent-titlebar . t)
-      (background-mode . light)
-      (background-color . "#FFFFFF")))
+      (background-mode . dark)
+      (background-color . "#2E3440")))
  '(delete-old-versions t)
  '(emacs-lisp-mode-hook '(parinfer-rust-mode))
  '(feebleline-mode t nil (feebleline))
  '(font-lock-global-modes '(not speedbar-mode))
- '(frame-background-mode 'light)
+ '(frame-background-mode 'dark)
  '(global-auto-revert-mode t)
  '(global-dash-fontify-mode t)
  '(global-hl-line-mode t)
@@ -39,6 +39,7 @@
  '(lsp-signature-auto-activate t)
  '(lsp-signature-render-documentation t)
  '(lsp-treemacs-sync-mode t)
+ '(lsp-ui-doc-show-with-cursor nil)
  '(menu-bar-mode nil)
  '(nano-fonts-use t)
  '(parinfer-rust-check-before-enable nil)
@@ -61,3 +62,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.

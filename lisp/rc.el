@@ -52,7 +52,7 @@
     (vterm)))
 
 (defun rc/set-appearance (&optional appearance)
-  "Set up themes, etc, as system appearance changes from 'light to 'dark"
+  (interactive)
   (if appearance
       (progn
         (setq frame-background-mode appearance)
