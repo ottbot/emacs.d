@@ -36,6 +36,8 @@
       (nano-theme :type git :host github :repo "rougier/nano-theme"))
     'rc/sup)
 
+(require 'smartparens-config)
+
 (require 'nano-theme)
 
 (rc/set-appearance)
