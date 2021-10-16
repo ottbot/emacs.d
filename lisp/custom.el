@@ -10,7 +10,7 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(custom-safe-themes
-   '("584c03e1f1a5d552c24b4edcf4c441654440ca86227c7807d0e609c6878d0056" default))
+   '("246a9596178bb806c5f41e5b571546bb6e0f4bd41a9da0df5dfbca7ec6e2250c" "584c03e1f1a5d552c24b4edcf4c441654440ca86227c7807d0e609c6878d0056" default))
  '(default-frame-alist
     '((bottom-divider-width . 1)
       (ns-appearance . light)
@@ -43,9 +43,8 @@
  '(lsp-treemacs-sync-mode t)
  '(lsp-ui-doc-show-with-cursor nil)
  '(menu-bar-mode nil)
- '(nano-fonts-use t)
  '(parinfer-rust-check-before-enable nil)
- '(parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib")
+ '(parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib" t)
  '(recentf-mode t)
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
@@ -63,5 +62,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(nano-mono ((t (:weight normal :height 140 :family "JetBrains Mono"))))
- '(window-divider ((t (:foreground "gray31")))))
+ '(message "set-faces, dummy"))

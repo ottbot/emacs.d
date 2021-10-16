@@ -1,1 +1,0 @@
-![emacs headroom](max.jpg)
