@@ -9,17 +9,19 @@
  '(before-save-hook '(delete-trailing-whitespace))
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(custom-safe-themes
+   '("584c03e1f1a5d552c24b4edcf4c441654440ca86227c7807d0e609c6878d0056" default))
  '(default-frame-alist
     '((bottom-divider-width . 1)
       (ns-appearance . light)
       (ns-transparent-titlebar . t)
-      (background-mode . light)
-      (background-color . "#FFFFFF")))
+      (background-mode . dark)
+      (background-color . "#2E3440")))
  '(delete-old-versions t)
  '(emacs-lisp-mode-hook '(parinfer-rust-mode))
  '(feebleline-mode t nil (feebleline))
  '(font-lock-global-modes '(not speedbar-mode))
- '(frame-background-mode 'light)
+ '(frame-background-mode 'dark)
  '(global-auto-revert-mode t)
  '(global-dash-fontify-mode t)
  '(global-hl-line-mode t)
@@ -65,28 +67,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(nano-mono ((t (:weight normal :height 140 :family "JetBrains Mono"))))
- '(window-divider ((t (:foreground "gray93")))))
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+ '(window-divider ((t (:foreground "gray31")))))

@@ -76,10 +76,19 @@
    '("C-p" utop-history-goto-prev
      "C-n" utop-history-goto-next)))
 
+(rc/sup 'racket-mode)
+
+(rc/sup 'clojure-mode)
+
+(rc/sup 'inf-clojure)
+
 (-each '(dune-mode-hook
+         clojure-mode-hook
          emacs-lisp-mode-hook)
   (lambda (some-hook)
     (add-hook some-hook
               'parinfer-rust-mode)))
+
+
 
 (rc/load-custom)
