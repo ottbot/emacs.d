@@ -1,11 +1,11 @@
-#+TITLE: My Emacs
+#+TITLE: Macs Headroom
 #+AUTHOR: Macs Headroom
 #+EMAIL: hello@servermilk.com
 #+OPTIONS: num:nil
 
-[[[[./max.jpg/]]]]
+[[./max.jpg/]]
 
-* Initialize
+* Base
   Set up local include path and base `rc` package
 
 #+BEGIN_SRC emacs-lisp
