@@ -10,7 +10,7 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(custom-safe-themes
-   '("246a9596178bb806c5f41e5b571546bb6e0f4bd41a9da0df5dfbca7ec6e2250c" "584c03e1f1a5d552c24b4edcf4c441654440ca86227c7807d0e609c6878d0056" default))
+   '("97db542a8a1731ef44b60bc97406c1eb7ed4528b0d7296997cbb53969df852d6" "246a9596178bb806c5f41e5b571546bb6e0f4bd41a9da0df5dfbca7ec6e2250c" "584c03e1f1a5d552c24b4edcf4c441654440ca86227c7807d0e609c6878d0056" default))
  '(default-frame-alist
     '((bottom-divider-width . 1)
       (ns-appearance . light)
