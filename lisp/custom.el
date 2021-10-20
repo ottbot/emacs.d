@@ -9,6 +9,7 @@
  '(before-save-hook '(delete-trailing-whitespace))
  '(blink-cursor-mode nil)
  '(column-number-mode t)
+ '(company-minimum-prefix-length 1)
  '(custom-safe-themes
    '("97db542a8a1731ef44b60bc97406c1eb7ed4528b0d7296997cbb53969df852d6" "246a9596178bb806c5f41e5b571546bb6e0f4bd41a9da0df5dfbca7ec6e2250c" "584c03e1f1a5d552c24b4edcf4c441654440ca86227c7807d0e609c6878d0056" default))
  '(default-frame-alist
@@ -42,6 +43,7 @@
  '(lsp-signature-render-documentation t)
  '(lsp-treemacs-sync-mode t)
  '(lsp-ui-doc-show-with-cursor nil)
+ '(lsp-ui-sideline-enable nil)
  '(menu-bar-mode nil)
  '(parinfer-rust-check-before-enable nil)
  '(parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib" t)
@@ -53,6 +55,7 @@
  '(size-indication-mode t)
  '(smartparens-global-mode t)
  '(solaire-global-mode t)
+ '(tab-always-indent 'complete)
  '(tool-bar-mode nil)
  '(truncate-partial-width-windows t)
  '(winner-dont-bind-my-keys t)

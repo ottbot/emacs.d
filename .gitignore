@@ -13,4 +13,4 @@ request/
 .cache/
 .lsp-session-v1
 /tramp
-README.el
+/racket-mode/
