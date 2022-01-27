@@ -6,7 +6,7 @@
 
 (rc-sup 'doom-themes)
 
-(set-frame-font "JetBrains Mono-10")
+(set-frame-font "JetBrains Mono-12")
 
 (setq doom-themes-enable-bold t
       doom-themes-enable-italic t)
