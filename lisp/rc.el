@@ -48,28 +48,6 @@
       (bury-buffer)
     (vterm)))
 
-(defvar rc-themes nil "A plist with 'light and 'dark themes to use")
-
-(defun rc-get-theme (appearance)
-   (plist-get rc-themes appearance))
-
-(defun rc-set-themes (light-theme dark-theme)
-  (setq rc-themes (list 'light light-theme 'dark dark-theme))
-  (rc-set-theme ns-system-appearance))
-
-(defun rc-set-theme (appearance)
-  (interactive)
-
-  (setq frame-background-mode appearance)
-
-  (mapc #'disable-theme custom-enabled-themes)
-  (mapc #'frame-set-background-mode (frame-list))
-
-  (load-theme (rc-get-theme appearance) t t))
-
-(add-hook 'ns-system-appearance-change-functions
-          'rc-set-theme)
-
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
 
@@ -83,16 +61,8 @@
       (ivy-hydra)
       (ivy-prescient)
       (diminish)
-      (feebleline)
-      (lsp-mode)
-      (lsp-ivy)
-      (lsp-ui)
-      (lsp-treemacs)
       (company)
       (which-key)
-      (writeroom-mode)
-      (treemacs)
-      (all-the-icons)
       (parinfer-rust-mode)
       (vterm         ("s-t" rc-toggle-vterm))
       (counsel       ("M-x" counsel-M-x))
@@ -109,7 +79,7 @@
 
 (require 'smartparens-config)
 
-(setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib")
+;;(setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib")
 
 (--each '(which-key-mode
           global-company-mode)
