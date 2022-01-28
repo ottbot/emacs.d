@@ -14,3 +14,4 @@ request/
 .lsp-session-v1
 /tramp
 /racket-mode/
+lisp/custom.el

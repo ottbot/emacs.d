@@ -6,18 +6,29 @@
 
 (rc-sup 'doom-themes)
 
-(set-frame-font "JetBrains Mono-12")
 
-(setq doom-themes-enable-bold t
-      doom-themes-enable-italic t)
+(require 'doom-themes)
+(setq doom-themes-enable-bold t)
+(setq doom-themes-enable-italic t)
 
-(load-theme 'doom-city-lights t)
+(load-theme 'doom-one t)
 
-(-each '(emacs-lisp-mode-hook)
+(doom-themes-visual-bell-config)
+(doom-themes-org-config)
+
+(rc-sup 'solaire-mode)
+(solaire-global-mode +1)
+
+(rc-sup 'project)
+(rc-sup 'geiser-chez)
+(rc-sup 'racket-mode)
+
+(require 'racket-xp)
+(add-hook 'racket-mode-hook #'racket-xp-mode)
+
+(-each '(racket-mode-hook emacs-lisp-mode-hook)
   (lambda (some-mode-hook)
     (add-hook some-mode-hook
               'parinfer-rust-mode)))
-
-;; scheme!
 
 (load custom-file)
