@@ -5,8 +5,6 @@
 (require 'rc)
 
 (rc-sup 'doom-themes)
-
-
 (require 'doom-themes)
 (setq doom-themes-enable-bold t)
 (setq doom-themes-enable-italic t)
@@ -21,14 +19,13 @@
 
 (rc-sup 'project)
 (rc-sup 'geiser-chez)
-(rc-sup 'racket-mode)
 
-(require 'racket-xp)
-(add-hook 'racket-mode-hook #'racket-xp-mode)
-
-(-each '(racket-mode-hook emacs-lisp-mode-hook)
+(-each '(scheme-mode-hook emacs-lisp-mode-hook)
   (lambda (some-mode-hook)
     (add-hook some-mode-hook
               'parinfer-rust-mode)))
+
+(rc-sup 'tuareg)
+(rc-sup 'utop)
 
 (load custom-file)
