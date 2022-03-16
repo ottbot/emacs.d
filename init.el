@@ -5,11 +5,10 @@
 (require 'rc)
 
 (rc-sup 'doom-themes)
+
 (require 'doom-themes)
 (setq doom-themes-enable-bold t)
 (setq doom-themes-enable-italic t)
-
-(load-theme 'doom-one t)
 
 (doom-themes-visual-bell-config)
 (doom-themes-org-config)
@@ -25,7 +24,13 @@
     (add-hook some-mode-hook
               'parinfer-rust-mode)))
 
-(rc-sup 'tuareg)
-(rc-sup 'utop)
+
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
+(-each '(tuareg utop dune merlin-company merlin-iedit)
+  (lambda (pkg)
+    (rc-sup pkg)))
 
 (load custom-file)
