@@ -16,11 +16,12 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-
 (setq-default  straight-fix-org t
-               straight-fix-flycheck t)
-
+               straight-fix-flycheck t
+               straight-use-package-by-default t)
 
 (straight-use-package 'exec-path-from-shell)
+(straight-use-package 'use-package)
+
 
 (exec-path-from-shell-initialize)

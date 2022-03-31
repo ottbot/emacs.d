@@ -1,99 +1,98 @@
 ;;; rc.el --- Personal Package -*- lexical-binding: t -*-
 
-(straight-use-package 'dash)
-
-(require 'dash)
-
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 
-(with-eval-after-load 'info-look
-  (dash-register-info-lookup))
+(global-set-key (kbd "s-w") 'bury-buffer)
 
-(defun rc-global-key (key cmd)
-  (global-set-key (kbd key) cmd))
-
-(defun rc-each-pair (lst fn)
-  (-each (-partition 2 lst)
-    (-applify fn)))
-
-(defun rc-global-keys (keycmds)
-  (rc-each-pair keycmds 'rc-global-key))
-
-(defun rc-bind-key (mode-map key cmd)
-  (define-key mode-map (kbd key) cmd))
-
-(defun rc-key-binder (mode-map)
-  #'(lambda (key cmd)
-     (rc-bind-key mode-map key cmd)))
-
-(defun rc-bind-keys (mode-map keycmds)
-  (rc-each-pair keycmds (rc-key-binder mode-map)))
-
-
-(defun rc-sup (pkg &rest opts)
-  (straight-use-package pkg)
-
-  (-when-let ((&plist :bind-global ks) opts
-              (rc-global-keys ks)))
-
-  (-when-let ((&plist :bind-local ks))
-    (-> (symbol-name pkg
-         (concat "-map")
-         (intern)
-         (rc-bind-keys ks)))))
-
-(defun rc-toggle-vterm ()
-  (interactive)
-  (if (string-equal "*vterm*" (buffer-name))
-      (bury-buffer)
-    (vterm)))
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired nil))
 
-(defalias 'yes-or-no-p 'y-or-n-p)
+(use-package dash)
 
-(-each
-    '((smartparens)
-      (unkillable-scratch)
-      (ivy)
-      (swiper)
-      (ivy-hydra)
-      (ivy-prescient)
-      (diminish)
-      (company)
-      (which-key)
-      (parinfer-rust-mode)
-      (vterm         ("s-t" rc-toggle-vterm))
-      (counsel       ("M-x" counsel-M-x))
-      (magit         ("C-x g" magit-status))
-      (avy           ("C-=" avy-goto-char))
-      (expand-region ("M-m" er/expand-region))
-      (ace-window    ("C-x o" ace-window))
-      (crux          ("C-k" crux-smart-kill-line
-                      "C-c n" crux-cleanup-buffer-or-region
-                      "C-c f" crux-recentf-find-file
-                      "C-a" crux-move-beginning-of-line)))
-  (-lambda ((pkg kb))
-    (rc-sup pkg :bind-global kb)))
+(use-package info-look
+  :no-require t
+  :config
+  (dash-register-info-lookup))
 
-(require 'smartparens-config)
 
-;;(setq parinfer-rust-library "~/.emacs.d/parinfer-rust/libparinfer_rust.dylib")
+(use-package parinfer-rust-mode
+  :hook ((emacs-lisp-mode scheme-mode) . parinfer-rust-mode))
 
-(--each '(which-key-mode
-          global-company-mode)
-    (add-hook 'after-init-hook it))
+(use-package unkillable-scratch)
 
-(rc-global-key "s-w" 'winner-undo)
+(use-package ivy)
+(use-package ivy-hydra)
+(use-package ivy-prescient)
 
-(rc-global-key "s-t" 'rc-toggle-vterm)
+(use-package swiper)
 
-(-each
-    '(ivy-mode
-      which-key-mode
-      company-mode
-      eldoc-mode)
-  'diminish)
+(use-package diminish)
+
+(use-package company)
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
+(use-package vterm
+  :bind ("s-t" . vterm))
+
+
+(use-package counsel
+  :bind ("M-x" . counsel-M-x))
+
+(use-package magit
+  :bind ("C-x g" . magit-status))
+
+(use-package avy
+  :bind ("C-=" . avy-goto-char))
+
+(use-package expand-region)
+
+(use-package ace-window
+  :bind ("C-x o" . ace-window))
+
+(use-package crux
+  :bind (("C-k" . crux-smart-kill-line)
+         ("C-a" . crux-move-beginning-of-line)
+         ("C-c n" . crux-cleanup-buffer-or-region)
+         ("C-c f" . crux-recentf-find-file)))
+
+(use-package smartparens
+  :init
+  (require 'smartparens-config))
+
+
+(use-package doom-themes
+  :init
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  :config
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  (load-theme 'doom-one-light t t))
+
+(use-package solaire-mode
+  :config
+  (solaire-global-mode +1))
+
+(use-package project)
+
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (lsp-mode . lsp-enable-which-key-integration)
+  :commands lsp)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+(use-package lsp-ivy :commands lsp-ivy-workplace-symbol)
+(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+
+
 
 (provide 'rc)
