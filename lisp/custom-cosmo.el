@@ -27,6 +27,7 @@
  '(kept-new-versions 20)
  '(kept-old-versions 5)
  '(menu-bar-mode nil)
+ '(ns-command-modifier 'meta)
  '(recentf-mode t)
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
