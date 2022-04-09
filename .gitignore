@@ -15,3 +15,4 @@ request/
 /tramp
 /racket-mode/
 lisp/custom.el
+ido.last

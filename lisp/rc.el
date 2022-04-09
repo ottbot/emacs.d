@@ -17,9 +17,6 @@
   (dash-register-info-lookup))
 
 
-(use-package parinfer-rust-mode
-  :hook ((emacs-lisp-mode scheme-mode) . parinfer-rust-mode))
-
 (use-package unkillable-scratch)
 
 (use-package ivy)
@@ -30,7 +27,9 @@
 
 (use-package diminish)
 
-(use-package company)
+(use-package company
+  :config
+  (global-company-mode))
 
 (use-package which-key
   :config

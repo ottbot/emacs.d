@@ -4,12 +4,21 @@
 
 (require 'rc)
 
-
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+;; ## end of OPAM user-setup addition for base / keep ## emacs this line
+
+(global-set-key (kbd "C-x p") 'previous-buffer)
+(global-set-key (kbd "C-x n") 'next-buffer)
+
+(use-package flycheck)
 
 (use-package tuareg)
+
+(use-package dune)
+
+(use-package parinfer-rust-mode
+  :hook ((emacs-lisp-mode scheme-mode dune-mode) . parinfer-rust-mode))
 
 (use-package lsp-mode
   :init
@@ -23,8 +32,5 @@
 
 (use-package lsp-ivy :commands lsp-ivy-workplace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-
-
-
 
 (load custom-file)
