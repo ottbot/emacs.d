@@ -38,6 +38,21 @@
  '(tab-always-indent 'complete)
  '(tool-bar-mode nil)
  '(truncate-partial-width-windows t)
+ '(tuareg-other-file-alist
+   '(("\\.\\(?:pp\\.\\)?mli\\'"
+      (".ml" ".mll" ".mly" ".pp.ml"))
+     ("_intf.ml\\'"
+      (".ml" ".mli"))
+     ("\\.\\(?:pp\\.\\)?ml\\'"
+      ("_intf.ml" ".mli"))
+     ("\\.mll\\'"
+      (".mli"))
+     ("\\.mly\\'"
+      (".mli"))
+     ("\\.eliomi\\'"
+      (".eliom"))
+     ("\\.eliom\\'"
+      (".eliomi"))))
  '(winner-dont-bind-my-keys t)
  '(winner-mode t))
 (custom-set-faces
