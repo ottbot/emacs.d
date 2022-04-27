@@ -16,3 +16,4 @@ request/
 /racket-mode/
 lisp/custom.el
 ido.last
+eshell

@@ -51,7 +51,16 @@
 (use-package expand-region)
 
 (use-package ace-window
-  :bind ("C-x o" . ace-window))
+  :bind ("C-x o" . ace-window)
+  :init
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-scope 'frame))
+
+
+
+
+
+
 
 (use-package crux
   :bind (("C-k" . crux-smart-kill-line)
