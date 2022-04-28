@@ -16,10 +16,10 @@
   :config
   (dash-register-info-lookup))
 
-
 (use-package unkillable-scratch)
 
-(use-package ivy)
+(use-package ivy
+  :diminish)
 (use-package ivy-hydra)
 (use-package ivy-prescient)
 
@@ -27,11 +27,16 @@
 
 (use-package diminish)
 
+(use-package el-doc
+  :diminish)
+
 (use-package company
+  :diminish
   :config
   (global-company-mode))
 
 (use-package which-key
+  :diminish
   :config
   (which-key-mode))
 
@@ -59,9 +64,6 @@
 
 
 
-
-
-
 (use-package crux
   :bind (("C-k" . crux-smart-kill-line)
          ("C-a" . crux-move-beginning-of-line)
@@ -69,6 +71,7 @@
          ("C-c f" . crux-recentf-find-file)))
 
 (use-package smartparens
+  :diminish
   :init
   (require 'smartparens-config))
 

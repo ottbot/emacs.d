@@ -13,25 +13,19 @@
 
 (use-package flycheck)
 
-(use-package tuareg)
+(use-package tuareg
+  :diminish)
 
 (use-package dune)
 
+(use-package merlin)
+
+(use-package merlin-eldoc
+  :hook ((tuareg-mode caml-mode) . merlin-eldoc-setup))
+
 (use-package parinfer-rust-mode
+  :diminish
   :hook ((emacs-lisp-mode scheme-mode dune-mode) . parinfer-rust-mode))
-
-(use-package lsp-mode
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook ((lsp-mode . lsp-enable-which-key-integration)
-         (tuareg-mode . lsp))
-  :commands lsp)
-
-(use-package lsp-ui
-  :commands lsp-ui-mode)
-
-(use-package lsp-ivy :commands lsp-ivy-workplace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
 (unless window-system
   (require 'mouse)
@@ -40,11 +34,5 @@
   (setq mouse-sel-mode t))
 
 (require 'ansi-color)
-
-(defun colorize-compilation-buffer ()
-  (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region (point-min) (point-max))))
-
-(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
 (load custom-file)
