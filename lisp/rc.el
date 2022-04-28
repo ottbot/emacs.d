@@ -27,9 +27,6 @@
 
 (use-package diminish)
 
-(use-package el-doc
-  :diminish)
-
 (use-package company
   :diminish
   :config
