@@ -18,14 +18,17 @@
 
 (use-package unkillable-scratch)
 
+(use-package diminish
+  :config
+  (diminish 'eldoc-mode))
+
 (use-package ivy
   :diminish)
+
 (use-package ivy-hydra)
 (use-package ivy-prescient)
 
 (use-package swiper)
-
-(use-package diminish)
 
 (use-package company
   :diminish

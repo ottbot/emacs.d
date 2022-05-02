@@ -11,17 +11,31 @@
 (global-set-key (kbd "C-x p") 'previous-buffer)
 (global-set-key (kbd "C-x n") 'next-buffer)
 
+(use-package eldoc-overlay)
+
 (use-package flycheck)
 
-(use-package tuareg
-  :diminish)
+(use-package tuareg)
+
+(use-package merlin-company)
+
+(use-package merlin
+  :diminish
+  :init
+  (require 'merlin-company)
+  (add-hook 'caml-mode-hook #'merlin-mode)
+  (add-hook 'tuareg-mode-hook
+            #'(lambda ()
+                (merlin-mode)
+                (setq mode-name "🧙🏽‍♂️"))))
+
 
 (use-package dune)
 
-(use-package merlin)
-
 (use-package merlin-eldoc
+  :init
   :hook ((tuareg-mode caml-mode) . merlin-eldoc-setup))
+
 
 (use-package parinfer-rust-mode
   :diminish

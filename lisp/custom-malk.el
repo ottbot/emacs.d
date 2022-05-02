@@ -41,10 +41,8 @@
  '(tuareg-other-file-alist
    '(("\\.\\(?:pp\\.\\)?mli\\'"
       (".ml" ".mll" ".mly" ".pp.ml"))
-     ("_intf.ml\\'"
-      (".ml" ".mli"))
      ("\\.\\(?:pp\\.\\)?ml\\'"
-      ("_intf.ml" ".mli"))
+      (".mli"))
      ("\\.mll\\'"
       (".mli"))
      ("\\.mly\\'"
