@@ -11,8 +11,6 @@
 (global-set-key (kbd "C-x p") 'previous-buffer)
 (global-set-key (kbd "C-x n") 'next-buffer)
 
-(use-package eldoc-overlay)
-
 (use-package flycheck)
 
 (use-package tuareg)
