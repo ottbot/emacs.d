@@ -27,6 +27,7 @@
   (add-hook 'tuareg-mode-hook
             #'(lambda ()
                 (merlin-mode)
+                (ocp-index-mode 0)
                 (setq mode-name "🧙🏽‍♂️"))))
 
 
