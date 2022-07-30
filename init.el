@@ -31,6 +31,26 @@
                 (setq mode-name "🧙🏽‍♂️"))))
 
 
+(require 'ansi-color)
+
+(defun endless/colorize-compilation ()
+  "Colorize from `compilation-filter-start' to `point'."
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region
+     compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook
+          #'endless/colorize-compilation)
+
+
+(use-package project)
+
+(use-package eglot
+  :config
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd-14")))
+
+(use-package cmake-mode)
+
 (use-package dune)
 
 (use-package merlin-eldoc
