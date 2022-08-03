@@ -30,6 +30,11 @@
                 (ocp-index-mode 0)
                 (setq mode-name "🧙🏽‍♂️"))))
 
+(straight-use-package
+ '(xah-wolfram-mode
+   :repo "https://github.com/xahlee/xah-wolfram-mode"))
+
+
 
 (require 'ansi-color)
 

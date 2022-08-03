@@ -17,3 +17,4 @@ request/
 lisp/custom.el
 ido.last
 eshell
+abbrev_defs
