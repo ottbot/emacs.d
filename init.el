@@ -30,9 +30,10 @@
                 (ocp-index-mode 0)
                 (setq mode-name "🧙🏽‍♂️"))))
 
-(straight-use-package
- '(xah-wolfram-mode
-   :repo "https://github.com/xahlee/xah-wolfram-mode"))
+(use-package xah-wolfram-mode
+  :straight '(xah-wolfram-mode
+              :repo "https://github.com/xahlee/xah-wolfram-mode")
+  :mode ("\\.wl\\'" . xah-wolfram-mode))
 
 
 
@@ -48,7 +49,10 @@
           #'endless/colorize-compilation)
 
 
-(use-package project)
+(use-package project
+  :config
+  (require 'project))
+
 
 (use-package eglot
   :config
