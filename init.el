@@ -4,12 +4,10 @@
 
 (require 'rc)
 
+
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for base / keep ## emacs this line
-
-(global-set-key (kbd "C-x p") 'previous-buffer)
-(global-set-key (kbd "C-x n") 'next-buffer)
 
 (use-package flycheck)
 
@@ -54,7 +52,10 @@
 
 (use-package eglot
   :config
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd-14")))
+  (require 'project)
+  (add-hook 'c++-mode-hook 'eglot-ensure)
+  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
 
 (use-package cmake-mode)
 

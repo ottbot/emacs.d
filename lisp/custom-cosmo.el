@@ -8,6 +8,7 @@
  '(backup-directory-alist '(("." . "~/.emacs.d/backup")))
  '(before-save-hook '(delete-trailing-whitespace))
  '(blink-cursor-mode nil)
+ '(c-basic-offset 4)
  '(column-number-mode t)
  '(company-minimum-prefix-length 1)
  '(custom-safe-themes
