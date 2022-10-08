@@ -9,6 +9,8 @@
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for base / keep ## emacs this line
 
+(use-package eldoc-overlay)
+
 (use-package flycheck)
 
 (use-package tuareg)
@@ -32,7 +34,6 @@
   :mode ("\\.wl\\'" . xah-wolfram-mode))
 
 
-
 (require 'ansi-color)
 
 (defun endless/colorize-compilation ()
@@ -44,11 +45,7 @@
 (add-hook 'compilation-filter-hook
           #'endless/colorize-compilation)
 
-
-(use-package project
-  :config
-  (require 'project))
-
+(use-package bazel)
 
 (use-package eglot
   :config

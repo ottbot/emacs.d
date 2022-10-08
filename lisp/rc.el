@@ -2,6 +2,8 @@
 
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 
+(require 'project)
+
 (global-set-key (kbd "s-w") 'bury-buffer)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -61,9 +63,6 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (setq aw-scope 'frame))
 
-
-
-
 (use-package crux
   :bind (("C-k" . crux-smart-kill-line)
          ("C-a" . crux-move-beginning-of-line)
@@ -74,7 +73,6 @@
   :diminish
   :init
   (require 'smartparens-config))
-
 
 (use-package doom-themes
   :init
@@ -88,7 +86,5 @@
 (use-package solaire-mode
   :config
   (solaire-global-mode +1))
-
-(use-package project)
 
 (provide 'rc)
