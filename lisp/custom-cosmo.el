@@ -8,7 +8,7 @@
  '(backup-directory-alist '(("." . "~/.emacs.d/backup")))
  '(before-save-hook '(delete-trailing-whitespace))
  '(blink-cursor-mode nil)
- '(c-basic-offset 4)
+ '(c-basic-offset 2)
  '(column-number-mode t)
  '(company-minimum-prefix-length 1)
  '(custom-safe-themes
@@ -16,7 +16,7 @@
  '(delete-old-versions t)
  '(extended-command-suggest-shorter nil)
  '(font-lock-global-modes '(not speedbar-mode))
- '(frame-background-mode 'light)
+ '(frame-background-mode nil)
  '(global-auto-revert-mode t)
  '(global-dash-fontify-mode t)
  '(global-hl-line-mode t)
@@ -61,6 +61,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 150 :width normal :foundry "nil" :family "JetBrains Mono"))))
+ '(default ((t (:inherit nil :extend t :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 150 :width normal :foundry "nil" :family "Berkeley Mono"))))
  '(message "set-faces, dummy")
  '(tuareg-font-lock-governing-face ((t (:weight bold)))))
