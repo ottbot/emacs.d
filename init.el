@@ -4,6 +4,8 @@
 
 (require 'rc)
 
+(require 'rc-cpp)
+
 (use-package exwm)
 
 
@@ -36,22 +38,22 @@
 
 (use-package bazel)
 
+(defun rc-c++-hook () 
+  (eglot-ensure)
+  (c-set-style "llvm.org")
+  (setq mode-name "😵‍💫"))
 
 (use-package eglot
   :config
   (require 'project)
-  (add-hook 'c++-mode-hook #'(lambda ()
-                               (eglot-ensure)
-                               (setq mode-name "😵‍💫")))
-  (add-hook 'c-mode-hook 'eglot-ensure)
+  (add-hook 'c++-mode-hook 'rc-c++-hook)
+  (add-hook 'c-mode-hook 'rc-c++-hook)
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
 
 (use-package cmake-mode)
 
 (use-package protobuf-mode)
 
-
-;(require 'rc-ocaml)
 
 (use-package parinfer-rust-mode
   :diminish
@@ -76,6 +78,5 @@
               ("t" . org-project-quick-capture)
               ("T" . org-project-capture)
               ("o" . org-project-open-todos)))
-
 
 (load custom-file)
