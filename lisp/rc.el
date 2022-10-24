@@ -4,8 +4,6 @@
 
 (require 'project)
 
-(global-set-key (kbd "s-w") 'bury-buffer)
-
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (when (string= system-type "darwin")
@@ -86,5 +84,24 @@
 (use-package solaire-mode
   :config
   (solaire-global-mode +1))
+
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (defun track-mouse (e))
+  (setq frame-resize-pixelwise t)
+  (setq mouse-sel-mode t))
+
+(require 'ansi-color)
+
+(defun endless/colorize-compilation ()
+  "Colorize from `compilation-filter-start' to `point'."
+  (let ((inhibit-read-only t))
+    (ansi-color-apply-on-region
+     compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook
+          #'endless/colorize-compilation)
+
 
 (provide 'rc)
