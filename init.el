@@ -13,9 +13,9 @@
               :repo "https://github.com/xahlee/xah-wolfram-mode")
   :mode ("\\.wl\\'" . xah-wolfram-mode))
 
-;;TODO move below to rc-cpp
-
 (use-package bazel)
+
+;; TODO : devolve eglot config to mode configs
 
 (defun rc-c++-hook ()
   (eglot-ensure)
@@ -25,12 +25,11 @@
 (use-package eglot
   :config
   (require 'project)
-  (add-hook 'c++-mode-hook 'rc-c++-hook)
+  (setq eglot-server-programs '(((c-mode c++-mode) . "clangd")
+                                (python-mode . ("pyright-langserver" "--stdio"))))
   (add-hook 'c-mode-hook 'rc-c++-hook)
-  (add-hook 'python-mode-hook 'eglot-ensure)
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
-  (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio"))))
-
+  (add-hook 'c++-mode-hook 'rc-c++-hook)
+  (add-hook 'python-mode-hook 'eglot-ensure))
 
 (use-package cmake-mode)
 
