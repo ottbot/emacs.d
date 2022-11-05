@@ -6,8 +6,6 @@
 
 (require 'rc-cpp)
 
-(use-package exwm)
-
 (use-package eldoc-overlay)
 
 (use-package xah-wolfram-mode
@@ -29,7 +27,10 @@
   (require 'project)
   (add-hook 'c++-mode-hook 'rc-c++-hook)
   (add-hook 'c-mode-hook 'rc-c++-hook)
-  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd")))
+  (add-hook 'python-mode-hook 'eglot-ensure)
+  (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
+  (add-to-list 'eglot-server-programs '(python-mode . ("pyright-langserver" "--stdio"))))
+
 
 (use-package cmake-mode)
 
@@ -39,6 +40,5 @@
   :diminish
   :hook ((emacs-lisp-mode scheme-mode) . parinfer-rust-mode))
 
-
-
 (load custom-file)
+(load-theme 'doom-one t nil)
