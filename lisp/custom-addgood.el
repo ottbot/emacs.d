@@ -47,7 +47,8 @@
  '(tuareg-manual-url
    "file:///home/rob/.opam/mm-core/var/cache/odig/html/index.html")
  '(winner-dont-bind-my-keys t)
- '(winner-mode t))
+ '(winner-mode t)
+ '(x-gtk-use-system-tooltips nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
