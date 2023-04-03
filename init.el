@@ -8,9 +8,8 @@
 
 (use-package eldoc-overlay)
 
-(use-package bazel)
-
-;; TODO : devolve eglot config to mode configs
+(use-package cmake-mode)
+(use-package cmake-font-lock)
 
 (defun rc-c++-hook ()
   (eglot-ensure)
@@ -18,9 +17,9 @@
   (setq mode-name "😵‍"))
 
 (use-package eglot
-  :config
+  :init
   (require 'project)
-                                
+  :config
   (add-hook 'c-mode-hook 'rc-c++-hook)
   (add-hook 'c++-mode-hook 'rc-c++-hook))
   
