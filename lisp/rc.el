@@ -2,6 +2,11 @@
 
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 (require 'project)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
