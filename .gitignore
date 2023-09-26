@@ -14,8 +14,8 @@ request/
 .lsp-session-v1
 /tramp
 /racket-mode/
-lisp/custom.el
 ido.last
 eshell
 abbrev_defs
 bookmarks
+history

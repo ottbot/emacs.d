@@ -13,8 +13,9 @@
 
 (defun rc-c++-hook ()
   (eglot-ensure)
-  (c-set-style "llvm.org")
-  (setq mode-name "😵‍"))
+  (setq mode-name "🙃")
+  (add-hook 'before-save-hook 'eglot-format nil 't))
+
 
 (use-package eglot
   :init
@@ -22,7 +23,7 @@
   :config
   (add-hook 'c-mode-hook 'rc-c++-hook)
   (add-hook 'c++-mode-hook 'rc-c++-hook))
-  
+
 
 (use-package cmake-mode)
 
