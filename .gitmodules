@@ -1,0 +1,3 @@
+[submodule "parinfer-rust"]
+	path = parinfer-rust
+	url = https://github.com/eraserhd/parinfer-rust.git

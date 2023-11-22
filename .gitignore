@@ -3,7 +3,6 @@ backup/
 eln-cache/
 straight/
 transient/
-parinfer-rust
 recentf
 request/
 /opam-user-setup.el

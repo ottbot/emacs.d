@@ -27,14 +27,6 @@
   :config
   (diminish 'eldoc-mode))
 
-(use-package ivy
-  :diminish)
-
-(use-package ivy-hydra)
-(use-package ivy-prescient)
-
-(use-package swiper)
-
 (use-package company
   :diminish
   :config
@@ -48,15 +40,9 @@
 (use-package vterm
   :bind ("s-t" . vterm))
 
-
-(use-package counsel
-  :bind ("M-x" . counsel-M-x))
-
 (use-package magit
   :bind ("C-x g" . magit-status))
 
-(use-package avy
-  :bind ("C-=" . avy-goto-char))
 
 (use-package expand-region)
 
