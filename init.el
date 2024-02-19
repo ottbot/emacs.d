@@ -28,13 +28,20 @@
 
 (use-package cmake-mode)
 
+(use-package moe-theme
+  :init
+  (show-paren-mode t)
+  (setq show-paren-style 'expression))
+
+(use-package modus-themes)
 
 (use-package parinfer-rust-mode
   :diminish
   :init
   (setq parinfer-rust-auto-download 'f)
   :hook ((emacs-lisp-mode scheme-mode) . parinfer-rust-mode))
-
+        
 
 (load custom-file)
-(load-theme 'doom-one t nil)
+
+(moe-light)
