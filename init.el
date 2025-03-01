@@ -1,47 +1,31 @@
-;; ⊂(◉‿◉)つ
-
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
-(require 'rc)
-
-(require 'rc-vertico)
-
-(require 'rc-cpp)
-
-(use-package eldoc-overlay)
-
-
-(use-package eglot
-  :init
-  (require 'project)
+(use-package emacs
+  :ensure nil
+  :bind ("C-c I" . (lambda () (interactive) (find-file user-init-file)))
+  :custom
+  (menu-bar-mode nil)
+  (tool-bar-mode nil)
+  (scroll-bar-mode nil)
+  (custom-file (expand-file-name "custom.el" (file-name-directory user-init-file)))
+  (inhibit-startup-message 't)
   :config
-  (add-hook 'c-mode-hook 'rc-c++-hook)
-  (add-hook 'c++-mode-hook 'rc-c++-hook))
+  (load custom-file)
+)
 
-(use-package cmake-mode)
-(use-package cmake-font-lock)
+(use-package package
+  :ensure nil
+  :config
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize))
 
-(defun rc-c++-hook ()
-  (eglot-ensure)
-  (setq mode-name "🙃")
-  (add-hook 'before-save-hook 'eglot-format nil 't))
+(use-package vterm
+  :ensure t
+  :bind ("s-t" . vterm)) ;; how to use super key in Blink.app ?
 
-(use-package cmake-mode)
 
-(use-package moe-theme
-  :init
-  (show-paren-mode t)
-  (setq show-paren-style 'expression))
 
-(use-package modus-themes)
 
-(use-package parinfer-rust-mode
-  :diminish
-  :init
-  (setq parinfer-rust-auto-download 'f)
-  :hook ((emacs-lisp-mode scheme-mode) . parinfer-rust-mode))
-        
 
-(load custom-file)
 
-(moe-light)
+
+
+ 
